@@ -8,9 +8,9 @@ extends Node3D
 @onready var ammo_display = $CanvasLayer/Control/PanelContainer/Ammo
 @onready var display = $CanvasLayer/Control
 
-var damage = 25
-var ammo = 10
-var maxammo = 10
+var damage = 10
+var ammo = 30
+var maxammo = 30
 var gunshot = preload("res://gunshot.tscn")
 var bullet_hole = preload("res://bullet_hole.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -50,7 +50,7 @@ func _process(_delta):
 		anim_player.play("reload")
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
 		display.visible = visible
-		if Input.is_action_just_pressed("shoot") and visible:
+		if Input.is_action_pressed("shoot") and visible:
 			use()
 func set_ammo(amount):
 	ammo = amount

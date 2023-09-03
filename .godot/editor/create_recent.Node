@@ -1,14 +1,18 @@
+Node3D
+Timer
+PanelContainer
+Panel
+Label
+Control
+CanvasLayer
 CSGBox3D
 MultiplayerSynchronizer
 MultiplayerSpawner
 Node
-Timer
 Decal
 AudioStreamPlayer3D
 Marker3D
 Camera3D
-PanelContainer
-Control
 SpinBox
 CheckButton
 ProgressBar
@@ -16,10 +20,8 @@ RayCast3D
 TextureRect
 LineEdit
 Button
-Label
 VBoxContainer
 MarginContainer
-CanvasLayer
 OmniLight3D
 GPUParticles3D
 AnimationPlayer
@@ -27,4 +29,3 @@ MeshInstance3D
 CollisionShape3D
 CharacterBody3D
 CSGCombiner3D
-Node3D

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://3t0o50si7wwp"]
+
+[ext_resource type="Texture2D" uid="uid://bjixv1ldholf" path="res://assets/Pistol Concrete Entry 1.png" id="1_igkpq"]
+[ext_resource type="Script" path="res://BulletHole.gd" id="2_qomn5"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hku4o"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath(".:scale")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+
+[node name="BulletHole" type="Decal"]
+size = Vector3(0.1, 0.1, 0.1)
+texture_albedo = ExtResource("1_igkpq")
+script = ExtResource("2_qomn5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_hku4o")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

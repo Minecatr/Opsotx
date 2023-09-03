@@ -1,0 +1,181 @@
+[gd_scene load_steps=12 format=3 uid="uid://wfh3ial3tyxm"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_76v8a"]
+[ext_resource type="Texture2D" uid="uid://dsmntphpfx65u" path="res://addons/kenney_prototype_textures/dark/texture_03.png" id="1_ovtjs"]
+[ext_resource type="Shader" path="res://crosshair.gdshader" id="3_riscy"]
+[ext_resource type="Texture2D" uid="uid://bn7y27r2hkkw1" path="res://addons/kenney_particle_pack/circle_05.png" id="4_xygk2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sortk"]
+albedo_texture = ExtResource("1_ovtjs")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ms8r6"]
+sky_horizon_color = Color(0.629583, 0.651735, 0.6875, 1)
+ground_bottom_color = Color(0.133333, 0.152941, 0.2, 1)
+ground_horizon_color = Color(0.629583, 0.651735, 0.6875, 1)
+
+[sub_resource type="Sky" id="Sky_sgqs7"]
+sky_material = SubResource("ProceduralSkyMaterial_ms8r6")
+
+[sub_resource type="Environment" id="Environment_nfmkc"]
+background_mode = 2
+sky = SubResource("Sky_sgqs7")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka3it"]
+shader = ExtResource("3_riscy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5udh5"]
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8g6c"]
+bg_color = Color(0.223529, 1, 0.321569, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="World" type="Node"]
+script = ExtResource("1_76v8a")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Environment"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_sortk")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/CSGCombiner3D"]
+transform = Transform3D(0.783895, -0.309702, -0.538138, 0.0620192, 0.901439, -0.428441, 0.617788, 0.302478, 0.725841, 3.22941, 0.434178, 0)
+size = Vector3(1, 1, 6.68776)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nfmkc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 144.0
+offset_right = -256.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="UpnpToggle" type="CheckButton" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "UPNP"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="PortEntry" type="SpinBox" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1024.0
+max_value = 65535.0
+value = 9999.0
+prefix = "Port: "
+
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "localhost"
+placeholder_text = "127.0.0.1"
+alignment = 1
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+material = SubResource("ShaderMaterial_ka3it")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.03, 0.03)
+pivot_offset = Vector2(576, 324)
+texture = ExtResource("4_xygk2")
+stretch_mode = 5
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.043
+anchor_right = 0.5
+anchor_bottom = 0.043
+offset_left = -168.0
+offset_top = -19.864
+offset_right = 168.0
+offset_bottom = 20.136
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5udh5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b8g6c")
+value = 100.0
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn", "res://gunshot.tscn")
+spawn_path = NodePath("..")
+
+[node name="bhSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://bullet_hole.tscn")
+spawn_path = NodePath("../BulletHoles")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="BulletHoles" type="Node" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]

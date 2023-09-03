@@ -1,0 +1,8 @@
+res://world.tscn
+res://crosshair.gdshader
+res://player.tscn
+res://assets/blender/ext/pistol.tscn
+res://gunshot.tscn
+res://bullet_hole.tscn
+res://Player.gd
+res://weapons/pistol.gd

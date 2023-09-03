@@ -12,6 +12,7 @@ var damage = 10
 var ammo = 30
 var maxammo = 30
 var gunshot = preload("res://gunshot.tscn")
+var gunshotsound = preload("res://assets/audio/smg1_fire1.wav")
 var bullet_hole = preload("res://bullet_hole.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +63,7 @@ func set_ammo(amount):
 @rpc("call_local")
 func play_shoot_effects():
 	var gc = gunshot.instantiate()
+	gc.stream = gunshotsound
 	add_child(gc)
 	gc.global_position = muzzle_flash.global_position
 	anim_player.stop()

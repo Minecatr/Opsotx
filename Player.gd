@@ -5,6 +5,7 @@ signal health_changed(health_value)
 @export var selected_weapon = 0
 
 @onready var camera = $Camera3D
+@onready var gun_camera = $Camera3D/SubViewportContainer/SubViewport/GunCam
 @onready var raycast = $Camera3D/RayCast3D
 @onready var weapon = $Camera3D/weapon
 
@@ -14,7 +15,7 @@ var menu = false
 const MOUSE_SENSITIVITY = 0.0025
 const JUMP_VELOCITY = 8.0
 const ACCELERATION = 10.0
-const AIR_RESISTANCE = 1.0
+const AIR_RESISTANCE = 2.0
 const WALK_SPEED = 5
 const RUN_SPEED = 9
 
@@ -26,11 +27,12 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-	equip()
 	if not is_multiplayer_authority(): return
 	position = Vector3(randf()-0.5,5,randf()-0.5)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
+	if multiplayer.get_unique_id()==name.to_int():
+		$Camera3D/SubViewportContainer.visible = true
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
@@ -53,7 +55,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	if position.y < -50:
-		recieve_damage.rpc(10)
+		position = Vector3(randf()-0.5,5,randf()-0.5)
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -67,12 +69,12 @@ func _physics_process(delta):
 		input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	#direction = direction.rotated(Vector3.UP, $SpringArm3D.rotation.y).normalized()
-	if is_on_floor() or input_dir:
+	if is_on_floor():
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * ACCELERATION)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * ACCELERATION)
 	else:
-		velocity.x = lerp(velocity.x, direction.x, delta * AIR_RESISTANCE)
-		velocity.z = lerp(velocity.z, direction.z, delta * AIR_RESISTANCE)
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * AIR_RESISTANCE)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * AIR_RESISTANCE)
 	
 	if !weapon.get_child(selected_weapon):
 		pass
@@ -82,12 +84,15 @@ func _physics_process(delta):
 		weapon.get_child(selected_weapon).play("idle")
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	if multiplayer.get_unique_id()==name.to_int():
+		gun_camera.global_transform = camera.global_transform
 		for n in range(1,10): # Hotbar
 			if Input.is_action_just_pressed(str(n)) and n <= weapon.get_child_count():
 				selected_weapon = n-1
 				equip.rpc()
+	else:
+		equip()
 
 @rpc("call_local")
 func equip():

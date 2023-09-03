@@ -17,9 +17,12 @@ var bullet_hole = preload("res://bullet_hole.tscn")
 func _ready():
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
 		display.visible = true
-		var material = mesh.get_surface_override_material(0).duplicate(true)
-		material.no_depth_test = true
-		mesh.set_surface_override_material(0,material)
+		mesh.set_layer_mask_value(2, true)
+		mesh.set_layer_mask_value(1, false)
+#		for i in range(mesh.get_surface_override_material_count()): 
+#			var material = mesh.get_active_material(i).duplicate(true)
+#			material.no_depth_test = true
+#			mesh.set_surface_override_material(i,material)
 
 func play(anim):
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload":

@@ -1,3 +1,6 @@
+Camera3D
+SubViewport
+SubViewportContainer
 Node3D
 Timer
 PanelContainer
@@ -12,7 +15,6 @@ Node
 Decal
 AudioStreamPlayer3D
 Marker3D
-Camera3D
 SpinBox
 CheckButton
 ProgressBar
@@ -28,4 +30,3 @@ AnimationPlayer
 MeshInstance3D
 CollisionShape3D
 CharacterBody3D
-CSGCombiner3D

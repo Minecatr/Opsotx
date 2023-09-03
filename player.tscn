@@ -47,6 +47,7 @@ shape = SubResource("CapsuleShape3D_bghr2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+cull_mask = 1048573
 fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
@@ -60,6 +61,26 @@ raycastpath = NodePath("../../RayCast3D")
 [node name="smg" parent="Camera3D/weapon" instance=ExtResource("4_hgtxl")]
 visible = false
 raycastpath = NodePath("../../RayCast3D")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="GunCam" type="Camera3D" parent="Camera3D/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+cull_mask = 2
+fov = 90.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_qowry")

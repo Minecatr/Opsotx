@@ -41,10 +41,7 @@ func _ready():
 
 func play(anim):
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload":
-		if Input.is_action_pressed("sprint") and anim == "move":
-			anim_player.speed_scale = 1.8
-		else:
-			anim_player.speed_scale = 1
+		print(anim_player.speed_scale)
 		anim_player.play(anim)
 func use():
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload" and ammo > 0 :
@@ -68,6 +65,10 @@ func use():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if get_parent().name != "weapon": return
+	if Input.is_action_pressed("sprint") and anim_player.current_animation == "move":
+		anim_player.speed_scale = 1.8
+	else:
+		anim_player.speed_scale = 1
 	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and (anim_player.current_animation != "shoot" and anim_player.current_animation != "reload"):
 		anim_player.play("reload")
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():

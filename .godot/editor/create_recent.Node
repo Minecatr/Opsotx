@@ -1,3 +1,5 @@
+ReflectionProbe
+RayCast3D
 Timer
 AudioStreamPlayer3D
 Node3D
@@ -23,7 +25,6 @@ Marker3D
 SpinBox
 CheckButton
 ProgressBar
-RayCast3D
 TextureRect
 LineEdit
 Button

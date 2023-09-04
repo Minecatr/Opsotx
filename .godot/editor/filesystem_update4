@@ -1,10 +1,10 @@
-res://world.tscn
-res://crosshair.gdshader
 res://weapons/pistol.tscn
-res://bullet_hole.tscn
+res://crosshair.gdshader
+res://world.tscn
 res://player.tscn
 res://weapons/smg.tscn
 res://weapons/shells_vector.tscn
+res://gunshot.tscn
 res://weapons/pistol.gd
-res://Player.gd
-res://weapons/smg.gd
+res://shellsound.gd
+res://ShellSoundRayCast.gd

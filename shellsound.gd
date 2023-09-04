@@ -5,7 +5,6 @@ var l = 0;
 var randn
 func _ready():
 	randn = round(randf()*3)
-	print(randn)
 	for i in range(randn):
 		var index = i + (3 - randn)
 #		print(index)

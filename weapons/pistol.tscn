@@ -22,7 +22,7 @@ angle_min = -180.0
 angle_max = 180.0
 color_ramp = SubResource("GradientTexture1D_lfayv")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6y1l1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8lo8"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -35,7 +35,8 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ebuql"]
-material = SubResource("StandardMaterial3D_6y1l1")
+lightmap_size_hint = Vector2i(4, 4)
+material = SubResource("StandardMaterial3D_m8lo8")
 size = Vector2(0.5, 0.5)
 orientation = 2
 
@@ -112,6 +113,54 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-750.187, 1402.92, 0.000244141)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Model/RootNode/Cube_003:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, -1.36424e-14, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Model/RootNode/Cylinder_014:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1169.14, 1275.17, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Model/RootNode/Cylinder_014:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.309)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Model/RootNode/Cylinder_014:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(50.7655, 50.7655, 35.0693)]
 }
 
 [sub_resource type="Animation" id="Animation_f4b34"]
@@ -202,8 +251,8 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 0.5, 0.5, 1),
+"times": PackedFloat32Array(0, 0.175, 0.5, 1.4625, 1.7),
+"transitions": PackedFloat32Array(1, 1, 2, 2, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.349066, 0, -0.523599), Vector3(0.349066, 0, -0.523599), Vector3(0, 0, 0)]
 }
@@ -226,7 +275,7 @@ tracks/3/path = NodePath("Model/RootNode/Cube_013:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.75, 0.95, 1.5),
+"times": PackedFloat32Array(0, 0.5, 0.75, 0.95, 1.4625),
 "transitions": PackedFloat32Array(1, 1, 2, 1, -2),
 "update": 0,
 "values": [Vector3(-691.412, 1368.22, 0.000244141), Vector3(-691.412, 1368.22, 0.000244141), Vector3(-1849.07, -5197.17, 0.00195313), Vector3(-1849.07, -5197.17, 0.00195313), Vector3(-691.412, 1368.22, 0.000244141)]
@@ -250,15 +299,51 @@ tracks/5/path = NodePath("Model/RootNode/Cube_006:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.05, 1.35, 1.4),
-"transitions": PackedFloat32Array(1, 2, 2, 2),
+"times": PackedFloat32Array(0, 0.1, 1.75, 1.8625, 2),
+"transitions": PackedFloat32Array(2, 2, -2, -2, 2),
 "update": 0,
-"values": [Vector3(-750.187, 1402.92, 0.000244141), Vector3(-1416.85, 1402.92, 0.000488281), Vector3(-1416.85, 1402.92, 0.000488281), Vector3(-750.187, 1402.92, 0.000244141)]
+"values": [Vector3(-750.187, 1402.92, 0.000244141), Vector3(-1166.85, 1402.92, 0), Vector3(-1166.85, 1402.92, 0), Vector3(-1416.85, 1402.92, 0), Vector3(-750.187, 1402.92, 0.000244141)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OmniLight3D:light_energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Model/RootNode/Cylinder_014:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1169.14, 1275.17, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Model/RootNode/Cylinder_014:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(50.7655, 50.7655, 35.0693)]
 }
 
 [sub_resource type="Animation" id="Animation_rjpjd"]
 resource_name = "shoot"
-length = 0.1
+length = 0.25
 step = 0.02
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -267,10 +352,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.02, 0.08),
-"transitions": PackedFloat32Array(2, 1),
+"times": PackedFloat32Array(0.05, 0.1, 0.16),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector3(0.45, -0.2, -0.5), Vector3(0.45, -0.2, -0.55)]
+"values": [Vector3(0.45, -0.2, -0.55), Vector3(0.45, -0.2, -0.5), Vector3(0.45, -0.2, -0.55)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -279,10 +364,10 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.02, 0.08),
-"transitions": PackedFloat32Array(2, 1),
+"times": PackedFloat32Array(0.05, 0.1, 0.16),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector3(0.174533, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.174533, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -291,7 +376,7 @@ tracks/2/path = NodePath("OmniLight3D:light_energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.06),
+"times": PackedFloat32Array(0.06, 0.08, 0.12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 5.0, 0.0]
@@ -303,10 +388,74 @@ tracks/3/path = NodePath("Model/RootNode/Cube_006:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.1),
-"transitions": PackedFloat32Array(0.5, 0.5, 2),
+"times": PackedFloat32Array(0.055, 0.115, 0.205),
+"transitions": PackedFloat32Array(-2, -2, 1),
 "update": 0,
 "values": [Vector3(-750.185, 1402.92, 0.000244141), Vector3(-1416.85, 1402.92, 0.000488281), Vector3(-750.185, 1402.92, 0.000244141)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Model/RootNode/Cube_003:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.005, 0.025, 0.25),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector3(-1.13446, 1.5708, -1.5708), Vector3(-0.959931, 1.5708, -1.5708), Vector3(-1.5708, 1.5708, -1.5708)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0934494),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnshell"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Model/RootNode/Cylinder_014:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.01, 0.05, 0.07, 0.08),
+"transitions": PackedFloat32Array(2, 2, -2, -2),
+"update": 0,
+"values": [Vector3(-1169.14, 1275.17, 0), Vector3(-997.608, 1482.48, 0.000244141), Vector3(-997.608, 1482.48, 0.000244141), Vector3(-1169.14, 1275.17, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Model/RootNode/Cylinder_014:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.07, 0.08),
+"transitions": PackedFloat32Array(2, 2, -2, -2),
+"update": 0,
+"values": [Vector3(-6.17623e-08, -1.05323e-07, 1.309), Vector3(-7.54979e-08, -1.34367e-14, -8.9578e-15), Vector3(-7.54979e-08, -1.34367e-14, -8.9578e-15), Vector3(0, 0, 1.309)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sh"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dpro"]
@@ -895,12 +1044,16 @@ shadow_mesh = SubResource("ArrayMesh_yt44w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.2, -0.55)
 script = ExtResource("2_vi080")
 
-[node name="Cube" parent="." index="0"]
+[node name="ShootDelay" type="Timer" parent="." index="0"]
+wait_time = 0.125
+one_shot = true
+
+[node name="Cube" parent="." index="1"]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_arrsq")
 
-[node name="MuzzleFlash" type="GPUParticles3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115017, -0.34951)
+[node name="MuzzleFlash" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.115017, -0.34951)
 emitting = false
 amount = 1
 lifetime = 0.1
@@ -909,20 +1062,20 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_vbab8")
 draw_pass_1 = SubResource("PlaneMesh_ebuql")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115017, -0.34951)
 light_color = Color(1, 0.909804, 0.54902, 1)
 light_energy = 0.0
 shadow_enabled = true
 omni_range = 15.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 playback_default_blend_time = 0.05
 libraries = {
 "": SubResource("AnimationLibrary_0dpro")
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
 visible = false
@@ -973,7 +1126,7 @@ pivot_offset = Vector2(576, 324)
 texture = ExtResource("5_nul6n")
 stretch_mode = 5
 
-[node name="Model" type="Node3D" parent="." index="5"]
+[node name="Model" type="Node3D" parent="." index="6"]
 transform = Transform3D(-6.55671e-09, 9.52912e-23, 0.15, 1.11759e-08, 0.15, 4.88513e-16, -0.15, 1.11759e-08, -6.55671e-09, 0, -0.1, -0.16)
 
 [node name="RootNode" type="Node3D" parent="Model" index="0"]
@@ -1003,7 +1156,7 @@ mesh = SubResource("ArrayMesh_jngfi")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="Node3D" parent="Model/RootNode" index="1"]
-transform = Transform3D(100, 0, 0, 0, -5.83321e-06, 100, 0, -35.804, -1.62921e-05, -163.309, 1054.44, 3.24741e-05)
+transform = Transform3D(100, 4.88453e-13, 5.96329e-20, 0, -1.56504e-06, 100, 1.36424e-12, -35.804, -4.37114e-06, -163.303, 1054.44, 0)
 
 [node name="Cube_003_Material_002_0" type="MeshInstance3D" parent="Model/RootNode/Cube_003" index="0"]
 mesh = SubResource("ArrayMesh_hg83p")
@@ -1035,9 +1188,10 @@ mesh = SubResource("ArrayMesh_afvub")
 skeleton = NodePath("")
 
 [node name="Cylinder_014" type="Node3D" parent="Model/RootNode" index="5"]
-transform = Transform3D(50.7655, 0, 0, 0, 50.7655, 2.64766e-06, 0, -3.83269e-06, 35.0693, -997.609, 1482.48, 8.99846e-05)
+transform = Transform3D(13.1391, -49.0357, 0, 49.0357, 13.1391, 0, 0, 0, 35.0693, -1169.14, 1275.17, 0)
 
 [node name="Cylinder_014_Material_005_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder_014" index="0"]
+transform = Transform3D(1, -7.10543e-15, -7.10543e-15, -1.42109e-14, 1, -2.2498e-15, -7.10543e-15, -1.89253e-14, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_h2stu")
 skeleton = NodePath("")
 
@@ -1071,7 +1225,7 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_vqmao")
 skeleton = NodePath("")
 
-[node name="Shell" type="Node3D" parent="." index="6"]
+[node name="Shell" type="Node3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114322, -0.139639)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

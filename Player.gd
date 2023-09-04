@@ -79,7 +79,10 @@ func _physics_process(delta):
 	if !weapon.get_child(selected_weapon):
 		pass
 	elif input_dir != Vector2.ZERO and is_on_floor():
-		weapon.get_child(selected_weapon).play("move")
+		if speed == RUN_SPEED:
+			weapon.get_child(selected_weapon).play("run")
+		else:
+			weapon.get_child(selected_weapon).play("move")
 	else:
 		weapon.get_child(selected_weapon).play("idle")
 	move_and_slide()

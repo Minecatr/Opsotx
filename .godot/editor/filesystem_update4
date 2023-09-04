@@ -1,6 +1,6 @@
-res://weapons/pistol.tscn
-res://crosshair.gdshader
 res://world.tscn
+res://crosshair.gdshader
+res://weapons/pistol.tscn
 res://gunshot.tscn
 res://bullet_hole.tscn
 res://player.tscn

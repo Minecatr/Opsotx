@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cuo2phj5nk52o"]
+[gd_scene load_steps=66 format=3 uid="uid://cuo2phj5nk52o"]
 
 [ext_resource type="PackedScene" uid="uid://vpidtg3ux4y" path="res://assets/blender/pistol.blend" id="1_flt83"]
 [ext_resource type="Script" path="res://weapons/smg.gd" id="2_r1hvl"]
@@ -333,6 +333,24 @@ tracks/3/keys = {
 "values": [Vector3(0, 0, 0.296706), Vector3(0, 0, 0.0349066)]
 }
 
+[sub_resource type="Animation" id="Animation_puyex"]
+resource_name = "run"
+length = 0.55
+loop_mode = 1
+step = 0.1375
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1375, 0.275, 0.4125),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector3(0.45, -0.2, -0.55), Vector3(0.4, -0.25, -0.55), Vector3(0.45, -0.2, -0.55), Vector3(0.5, -0.25, -0.55)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dpro"]
 _data = {
 "RESET": SubResource("Animation_xfbul"),
@@ -340,6 +358,7 @@ _data = {
 "idle": SubResource("Animation_fipwk"),
 "move": SubResource("Animation_t4338"),
 "reload": SubResource("Animation_rd785"),
+"run": SubResource("Animation_puyex"),
 "shoot": SubResource("Animation_rjpjd")
 }
 

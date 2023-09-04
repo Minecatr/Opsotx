@@ -1,4 +1,5 @@
 res://weapons/pistol.tscn
+<<<<<<< HEAD
 res://crosshair.gdshader
 res://world.tscn
 res://player.tscn
@@ -8,3 +9,12 @@ res://gunshot.tscn
 res://weapons/pistol.gd
 res://shellsound.gd
 res://ShellSoundRayCast.gd
+=======
+res://bullet_hole.tscn
+res://player.tscn
+res://weapons/smg.tscn
+res://weapons/shells_vector.tscn
+res://weapons/pistol.gd
+res://Player.gd
+res://weapons/smg.gd
+>>>>>>> 3f533e0e2d5c2a4cf0af85d43e258ad2b77036bb

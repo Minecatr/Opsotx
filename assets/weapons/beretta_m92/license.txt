@@ -1,0 +1,11 @@
+Model Information:
+* title:	Beretta M92
+* source:	https://sketchfab.com/3d-models/beretta-m92-b2f1e4ad5d4646859116e9a92c0ffb2b
+* author:	Lolik123654 (https://sketchfab.com/Lolik123654)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Beretta M92" (https://sketchfab.com/3d-models/beretta-m92-b2f1e4ad5d4646859116e9a92c0ffb2b) by Lolik123654 (https://sketchfab.com/Lolik123654) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

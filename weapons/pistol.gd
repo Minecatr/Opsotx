@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var raycastpath: NodePath 
+
 @onready var raycast = get_node(raycastpath)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $MuzzleFlash
@@ -13,12 +14,24 @@ var ammo = 10
 var maxammo = 10
 var gunshot = preload("res://gunshot.tscn")
 var bullet_hole = preload("res://bullet_hole.tscn")
+
+func findByClass(node: Node, className : String, result : Array) -> void:
+	if node.is_class(className) :
+		result.push_back(node)
+	for child in node.get_children():
+		findByClass(child, className, result)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
 		display.visible = true
-		mesh.set_layer_mask_value(2, true)
-		mesh.set_layer_mask_value(1, false)
+		var results = []
+		findByClass($Model, "MeshInstance3D", results)
+		for result in results:
+			result.set_layer_mask_value(2, true)
+			result.set_layer_mask_value(1, false)
+#		mesh.set_layer_mask_value(2, true)
+#		mesh.set_layer_mask_value(1, false)
 #		var material = mesh.get_surface_override_material(0).duplicate(true)
 #		material.no_depth_test = true
 #		mesh.set_surface_override_material(0,material)

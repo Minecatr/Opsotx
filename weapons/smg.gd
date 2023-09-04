@@ -8,18 +8,31 @@ extends Node3D
 @onready var ammo_display = $CanvasLayer/Control/PanelContainer/Ammo
 @onready var display = $CanvasLayer/Control
 
-var damage = 10
+var damage = 15
 var ammo = 30
 var maxammo = 30
 var gunshot = preload("res://gunshot.tscn")
 var gunshotsound = preload("res://assets/audio/smg1_fire1.wav")
 var bullet_hole = preload("res://bullet_hole.tscn")
+var shells = preload("res://weapons/shells_vector.tscn")
+
+func findByClass(node: Node, className : String, result : Array) -> void:
+	if node.is_class(className) :
+		result.push_back(node)
+	for child in node.get_children():
+		findByClass(child, className, result)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
 		display.visible = true
-		mesh.set_layer_mask_value(2, true)
-		mesh.set_layer_mask_value(1, false)
+		var results = []
+		findByClass($Model, "MeshInstance3D", results)
+		for result in results:
+			result.set_layer_mask_value(2, true)
+			result.set_layer_mask_value(1, false)
+#		mesh.set_layer_mask_value(2, true)
+#		mesh.set_layer_mask_value(1, false)
 #		for i in range(mesh.get_surface_override_material_count()): 
 #			var material = mesh.get_active_material(i).duplicate(true)
 #			material.no_depth_test = true
@@ -50,7 +63,7 @@ func use():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if get_parent().name != "weapon": return
-	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and anim_player.current_animation != "reload":
+	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and (anim_player.current_animation != "shoot" and anim_player.current_animation != "reload"):
 		anim_player.play("reload")
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
 		display.visible = visible
@@ -69,6 +82,9 @@ func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	muzzle_flash.restart()
+	var pc = shells.instantiate()
+	add_child(pc)
+
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":

@@ -1,7 +1,12 @@
 Camera3D
 SubViewport
-SubViewportContainer
+Label3D
+GPUParticlesCollisionSDF3D
+GPUParticlesCollisionBox3D
+CPUParticles3D
+GPUParticles3D
 Node3D
+SubViewportContainer
 Timer
 PanelContainer
 Panel
@@ -25,8 +30,3 @@ Button
 VBoxContainer
 MarginContainer
 OmniLight3D
-GPUParticles3D
-AnimationPlayer
-MeshInstance3D
-CollisionShape3D
-CharacterBody3D

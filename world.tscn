@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://wfh3ial3tyxm"]
+[gd_scene load_steps=10 format=3 uid="uid://wfh3ial3tyxm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_76v8a"]
 [ext_resource type="Texture2D" uid="uid://dsmntphpfx65u" path="res://addons/kenney_prototype_textures/dark/texture_03.png" id="1_ovtjs"]
-[ext_resource type="Shader" path="res://crosshair.gdshader" id="3_riscy"]
-[ext_resource type="Texture2D" uid="uid://bn7y27r2hkkw1" path="res://addons/kenney_particle_pack/circle_05.png" id="4_xygk2"]
+[ext_resource type="CompressedTexture3D" uid="uid://biycecntmghpj" path="res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr" id="3_bnflb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sortk"]
 albedo_texture = ExtResource("1_ovtjs")
@@ -22,9 +21,6 @@ background_mode = 2
 sky = SubResource("Sky_sgqs7")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka3it"]
-shader = ExtResource("3_riscy")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5udh5"]
 bg_color = Color(0, 0, 0, 0.501961)
@@ -56,6 +52,12 @@ material = SubResource("StandardMaterial3D_sortk")
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/CSGCombiner3D"]
 transform = Transform3D(0.783895, -0.309702, -0.538138, 0.0620192, 0.901439, -0.428441, 0.617788, 0.302478, 0.725841, 3.22941, 0.434178, 0)
 size = Vector3(1, 1, 6.68776)
+
+[node name="GPUParticlesCollisionSDF3D" type="GPUParticlesCollisionSDF3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(100, 4, 100)
+resolution = 4
+texture = ExtResource("3_bnflb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nfmkc")
@@ -127,25 +129,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
-material = SubResource("ShaderMaterial_ka3it")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.03, 0.03)
-pivot_offset = Vector2(576, 324)
-texture = ExtResource("4_xygk2")
-stretch_mode = 5
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 1

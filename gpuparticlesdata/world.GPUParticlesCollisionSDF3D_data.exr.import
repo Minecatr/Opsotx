@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://biycecntmghpj"
+path="res://.godot/imported/world.GPUParticlesCollisionSDF3D_data.exr-e20a15c6d3be77f82d5033c29e03eea2.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr"
+dest_files=["res://.godot/imported/world.GPUParticlesCollisionSDF3D_data.exr-e20a15c6d3be77f82d5033c29e03eea2.ctex3d"]
+
+[params]
+
+compress/mode=3
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=256

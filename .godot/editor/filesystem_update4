@@ -9,3 +9,6 @@ res://weapons/smg.tscn
 res://weapons/smg.gd
 res://Player.gd
 res://world.gd
+res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr
+res://weapons/shells_vector.tscn
+res://weapons/shells_vector.gd

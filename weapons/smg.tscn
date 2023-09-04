@@ -1117,7 +1117,7 @@ mesh = SubResource("ArrayMesh_jbpre")
 skeleton = NodePath("")
 
 [node name="Box008" type="Node3D" parent="Model/RootNode" index="5"]
-transform = Transform3D(2.04552, -0.0730182, 1.18962e-08, 0.0730182, 2.04552, -3.33257e-07, 7.27177e-15, 3.3347e-07, 2.04682, 10.2442, 79.5421, 0)
+transform = Transform3D(2.04552, -0.0730182, 1.18962e-08, 0.0730182, 2.04552, -3.33257e-07, 3.63589e-15, 3.3347e-07, 2.04682, 10.2442, 79.5421, 0)
 
 [node name="Object_20" type="Node3D" parent="Model/RootNode/Box008" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06543, -4.79442, -0.426248)

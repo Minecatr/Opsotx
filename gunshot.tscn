@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://bgmqpwdg8u3t5" path="res://assets/audio/pistol_fire2.wav" id="1_nj6gw"]
 [ext_resource type="Script" path="res://shellsound.gd" id="2_ni174"]
-[ext_resource type="AudioStream" uid="uid://de0e0gllqw8oh" path="res://assets/audio/shells.wav" id="3_jin5u"]
+[ext_resource type="AudioStream" uid="uid://1tonfiyfbmrm" path="res://assets/audio/shells.wav" id="3_jin5u"]
 
 [node name="shells" type="AudioStreamPlayer3D"]
 stream = ExtResource("3_jin5u")

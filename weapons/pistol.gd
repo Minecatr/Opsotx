@@ -85,23 +85,18 @@ func sh():
 			bh.rotate(normal, randf_range(0, 2*PI))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-<<<<<<< HEAD
-	if get_parent().name != "weapon": return
 	if Input.is_action_pressed("sprint") and anim_player.current_animation == "move":
 		anim_player.speed_scale = 1.8
 	else:
 		anim_player.speed_scale = 1
 	if anim_player.current_animation == "shoot":
 		anim_player.speed_scale = 1
-	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and anim_player.current_animation != "reload":
-=======
-	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and (anim_player.current_animation != "shoot" and anim_player.current_animation != "reload") and visible:
->>>>>>> 3f533e0e2d5c2a4cf0af85d43e258ad2b77036bb
-		anim_player.play("reload")
-	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
-		display.visible = visible
-		if Input.is_action_just_pressed("shoot") and visible:
-			use()
+    if ((ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and anim_player.current_animation != "reload") and visible:
+        anim_player.play("reload")
+    if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
+        display.visible = visible
+        if Input.is_action_just_pressed("shoot") and visible: # change for auto and semi auto
+            use()	
 
 func set_ammo(amount):
 	ammo = amount

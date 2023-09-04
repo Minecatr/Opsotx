@@ -62,11 +62,7 @@ func use():
 				bh.rotate(normal, randf_range(0, 2*PI))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if get_parent().name != "weapon": return
-	if Input.is_action_pressed("sprint") and anim_player.current_animation == "move":
-		anim_player.speed_scale = 1.8
-	else:
-		anim_player.speed_scale = 1
+	if !visible: return
 	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and anim_player.current_animation != "reload":
 		anim_player.play("reload")
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():

@@ -1,8 +1,10 @@
 res://world.tscn
 res://crosshair.gdshader
 res://weapons/pistol.tscn
-res://gunshot.tscn
 res://bullet_hole.tscn
 res://player.tscn
 res://weapons/smg.tscn
 res://weapons/shells_vector.tscn
+res://weapons/pistol.gd
+res://Player.gd
+res://weapons/smg.gd

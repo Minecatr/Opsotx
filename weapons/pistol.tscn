@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://btl7ynqqqv8sl"]
+[gd_scene load_steps=62 format=3 uid="uid://btl7ynqqqv8sl"]
 
 [ext_resource type="PackedScene" uid="uid://vpidtg3ux4y" path="res://assets/blender/pistol.blend" id="1_xrggd"]
 [ext_resource type="Script" path="res://weapons/pistol.gd" id="2_vi080"]
@@ -458,24 +458,6 @@ tracks/8/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_dk1q2"]
-resource_name = "run"
-length = 0.55
-loop_mode = 1
-step = 0.1375
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1375, 0.275, 0.4125),
-"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
-"update": 0,
-"values": [Vector3(0.45, -0.2, -0.55), Vector3(0.4, -0.25, -0.55), Vector3(0.45, -0.2, -0.55), Vector3(0.5, -0.25, -0.55)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dpro"]
 _data = {
 "RESET": SubResource("Animation_xfbul"),
@@ -483,7 +465,6 @@ _data = {
 "idle": SubResource("Animation_fipwk"),
 "move": SubResource("Animation_t4338"),
 "reload": SubResource("Animation_rd785"),
-"run": SubResource("Animation_dk1q2"),
 "shoot": SubResource("Animation_rjpjd")
 }
 
@@ -1175,7 +1156,7 @@ mesh = SubResource("ArrayMesh_jngfi")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="Node3D" parent="Model/RootNode" index="1"]
-transform = Transform3D(100, 4.88453e-13, 5.96329e-20, 0, -1.56504e-06, 100, 1.36424e-12, -35.804, -4.37114e-06, -163.303, 1054.44, 0)
+transform = Transform3D(100, 4.88452e-13, 4.93854e-18, 0, -0.00012961, 100, 1.36424e-12, -35.804, -0.000361999, -163.303, 1054.44, 0)
 
 [node name="Cube_003_Material_002_0" type="MeshInstance3D" parent="Model/RootNode/Cube_003" index="0"]
 mesh = SubResource("ArrayMesh_hg83p")
@@ -1207,7 +1188,7 @@ mesh = SubResource("ArrayMesh_afvub")
 skeleton = NodePath("")
 
 [node name="Cylinder_014" type="Node3D" parent="Model/RootNode" index="5"]
-transform = Transform3D(13.1391, -49.0357, 0, 49.0357, 13.1391, 0, 0, 0, 35.0693, -1169.14, 1275.17, 0)
+transform = Transform3D(13.1389, -49.0357, 0, 49.0357, 13.1389, 0, 0, 0, 35.0693, -1169.14, 1275.17, 0)
 
 [node name="Cylinder_014_Material_005_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder_014" index="0"]
 transform = Transform3D(1, -7.10543e-15, -7.10543e-15, -1.42109e-14, 1, -2.2498e-15, -7.10543e-15, -1.89253e-14, 1, 0, 0, 0)

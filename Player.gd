@@ -58,14 +58,14 @@ func _physics_process(delta):
 		position = Vector3(randf()-0.5,5,randf()-0.5)
 	
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !menu:
 		velocity.y = JUMP_VELOCITY
 
 	var speed = RUN_SPEED if Input.is_action_pressed("sprint") else WALK_SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Vector2.ZERO
-	if not menu:
+	if !menu:
 		input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	#direction = direction.rotated(Vector3.UP, $SpringArm3D.rotation.y).normalized()
@@ -79,10 +79,7 @@ func _physics_process(delta):
 	if !weapon.get_child(selected_weapon):
 		pass
 	elif input_dir != Vector2.ZERO and is_on_floor():
-		if speed == RUN_SPEED:
-			weapon.get_child(selected_weapon).play("run")
-		else:
-			weapon.get_child(selected_weapon).play("move")
+		weapon.get_child(selected_weapon).play("move")
 	else:
 		weapon.get_child(selected_weapon).play("idle")
 	move_and_slide()

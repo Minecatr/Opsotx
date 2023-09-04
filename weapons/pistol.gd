@@ -91,13 +91,12 @@ func _process(_delta):
 		anim_player.speed_scale = 1
 	if anim_player.current_animation == "shoot":
 		anim_player.speed_scale = 1
-    if ((ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and anim_player.current_animation != "reload") and visible:
-        anim_player.play("reload")
-    if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
-        display.visible = visible
-        if Input.is_action_just_pressed("shoot") and visible: # change for auto and semi auto
-            use()	
-
+	if ((ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and anim_player.current_animation != "reload") and visible:
+		anim_player.play("reload")
+	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
+		display.visible = visible
+		if Input.is_action_just_pressed("shoot") and visible: # change for auto and semi auto
+			use()
 func set_ammo(amount):
 	ammo = amount
 	ammo_display.text = str(ammo)

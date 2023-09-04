@@ -40,7 +40,6 @@ func _ready():
 #			mesh.set_surface_override_material(i,material)
 
 func play(anim):
-	sprint_speed()
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload":
 		anim_player.play(anim)
 func use():
@@ -64,8 +63,7 @@ func use():
 				bh.rotate(normal, randf_range(0, 2*PI))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if get_parent().name != "weapon": return
-	sprint_speed()
+	if !visible: return
 	if (ammo <= 0 or (Input.is_action_just_pressed("reload")) and ammo != maxammo) and (anim_player.current_animation != "shoot" and anim_player.current_animation != "reload"):
 		anim_player.play("reload")
 	if multiplayer.get_unique_id()==get_parent().get_parent().get_parent().name.to_int():
@@ -75,11 +73,6 @@ func _process(_delta):
 func set_ammo(amount):
 	ammo = amount
 	ammo_display.text = str(ammo)
-func sprint_speed():
-	if Input.is_action_pressed("sprint") and anim_player.current_animation == "move":
-		anim_player.speed_scale = 1.8
-	else:
-		anim_player.speed_scale = 1
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -88,7 +81,6 @@ func play_shoot_effects():
 	add_child(gc, true)
 	gc.global_position = muzzle_flash.global_position
 	anim_player.stop()
-	sprint_speed()
 	anim_player.play("shoot")
 	muzzle_flash.restart()
 	var pc = shells.instantiate()
@@ -97,7 +89,6 @@ func play_shoot_effects():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	sprint_speed()
 	if anim_name == "shoot":
 		anim_player.play("idle")
 	if anim_name == "reload":

@@ -41,7 +41,6 @@ func _ready():
 
 func play(anim):
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload":
-		print(anim_player.speed_scale)
 		anim_player.play(anim)
 func use():
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload" and ammo > 0 :

@@ -1,6 +1,7 @@
-res://player.tscn::de0a2804bd8692cad36e4327b7ee12d3::1693779637::res://.godot/exported/133200997/export-36a25e342948d0ceacc500772b5412b3-player.scn
-res://gunshot.tscn::58ff0bfdd0393afe9715cf665db35edf::1693779637::res://.godot/exported/133200997/export-597765a09cf84e910415aac9d8882b95-gunshot.scn
-res://world.tscn::5f77c97c13a1555af767cb5681d1ae74::1693779637::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
-res://weapons/pistol.tscn::8271ae660e5bb66a1e4efaeb6bdb7970::1693779637::res://.godot/exported/133200997/export-69158334632ebe46310268f359202787-pistol.scn
-res://weapons/smg.tscn::633f0813733055b0537367625ad88e23::1693779637::res://.godot/exported/133200997/export-b79ff1afc3fdc8f3b5a157650260422f-smg.scn
-res://bullet_hole.tscn::3744a460c1ffcfd3fc49818d04c6b753::1693779637::res://.godot/exported/133200997/export-04f43c45a595446d590263e169c05417-bullet_hole.scn
+res://player.tscn::de0a2804bd8692cad36e4327b7ee12d3::1693793615::res://.godot/exported/133200997/export-36a25e342948d0ceacc500772b5412b3-player.scn
+res://gunshot.tscn::2a8c9d3e3291ba59cc0ccaee156fed17::1693793615::res://.godot/exported/133200997/export-597765a09cf84e910415aac9d8882b95-gunshot.scn
+res://world.tscn::9408312979670e73217ffb72a6e42f5e::1693793614::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
+res://weapons/pistol.tscn::154aaa98fa7dde2670fc5118cd90a450::1693793615::res://.godot/exported/133200997/export-69158334632ebe46310268f359202787-pistol.scn
+res://weapons/smg.tscn::84ccc7063dd6643bcacf34e1737278fb::1693793615::res://.godot/exported/133200997/export-b79ff1afc3fdc8f3b5a157650260422f-smg.scn
+res://bullet_hole.tscn::3744a460c1ffcfd3fc49818d04c6b753::1693793615::res://.godot/exported/133200997/export-04f43c45a595446d590263e169c05417-bullet_hole.scn
+res://weapons/shells_vector.tscn::7f39daaf2c5d00665436a84951f2d14e::1693793615::res://.godot/exported/133200997/export-8832dcb325d43963f6479240ee6ed285-shells_vector.scn

@@ -8,12 +8,14 @@ extends Node3D
 @onready var mesh = $Cube
 @onready var ammo_display = $CanvasLayer/Control/PanelContainer/Ammo
 @onready var display = $CanvasLayer/Control
+@onready var shellpos = $Shell
 
 var damage = 25
 var ammo = 10
 var maxammo = 10
 var gunshot = preload("res://gunshot.tscn")
 var bullet_hole = preload("res://bullet_hole.tscn")
+var shells = preload("res://weapons/shells_vector.tscn")
 
 func findByClass(node: Node, className : String, result : Array) -> void:
 	if node.is_class(className) :
@@ -38,6 +40,10 @@ func _ready():
 
 func play(anim):
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload":
+		if Input.is_action_pressed("sprint") and anim == "move":
+			anim_player.speed_scale = 1.8
+		else:
+			anim_player.speed_scale = 1
 		anim_player.play(anim)
 func use():
 	if anim_player.current_animation != "shoot" and anim_player.current_animation != "reload" and ammo > 0 :
@@ -74,11 +80,14 @@ func set_ammo(amount):
 @rpc("call_local")
 func play_shoot_effects():
 	var gc = gunshot.instantiate()
-	add_child(gc)
+	add_child(gc, true)
 	gc.global_position = muzzle_flash.global_position
 	anim_player.stop()
 	anim_player.play("shoot")
 	muzzle_flash.restart()
+	var pc = shells.instantiate()
+	pc.position = shellpos.position
+	add_child(pc)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":

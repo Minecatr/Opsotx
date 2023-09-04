@@ -1,3 +1,4 @@
+Node3D
 Camera3D
 SubViewport
 Label3D
@@ -5,7 +6,6 @@ GPUParticlesCollisionSDF3D
 GPUParticlesCollisionBox3D
 CPUParticles3D
 GPUParticles3D
-Node3D
 SubViewportContainer
 Timer
 PanelContainer

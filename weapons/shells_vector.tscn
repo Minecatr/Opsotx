@@ -20,8 +20,8 @@ curve = SubResource("Curve_a3rei")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l0rm"]
 direction = Vector3(1, 0.5, -0.25)
 spread = 5.0
-initial_velocity_min = 2.0
-initial_velocity_max = 2.0
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
 scale_min = 0.15
 scale_max = 0.15
 scale_curve = SubResource("CurveTexture_x0nq6")
@@ -37,7 +37,8 @@ transparency = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_ai3nn")
-roughness = 0.892971
+metallic = 1.0
+roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mrtu2"]
 _surfaces = [{

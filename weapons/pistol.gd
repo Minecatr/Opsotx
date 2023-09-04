@@ -10,9 +10,9 @@ extends Node3D
 @onready var display = $CanvasLayer/Control
 @onready var shellpos = $Shell
 
-var damage = 25
-var ammo = 10
-var maxammo = 10
+var damage = 16
+var ammo = 17
+var maxammo = 17
 var gunshot = preload("res://gunshot.tscn")
 var bullet_hole = preload("res://bullet_hole.tscn")
 var shells = preload("res://weapons/shells_vector.tscn")

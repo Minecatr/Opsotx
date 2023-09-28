@@ -147,6 +147,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5udh5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b8g6c")
 value = 100.0
 
+[node name="StructureSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://structures/block.tscn", "res://structures/slab.tscn")
+spawn_path = NodePath("../PlayerStructures")
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn", "res://gunshot.tscn")
 spawn_path = NodePath("..")
@@ -159,6 +163,8 @@ spawn_path = NodePath("../BulletHoles")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="BulletHoles" type="Node" parent="."]
+
+[node name="PlayerStructures" type="Node" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

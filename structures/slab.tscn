@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ubrrrymn5efb"]
+
+[ext_resource type="PackedScene" uid="uid://b36k6cfs8xq1k" path="res://properties.tscn" id="1_yxfoy"]
+[ext_resource type="Script" path="res://properties.gd" id="2_fxglr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xxlwy"]
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hacn0"]
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mr52k"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
+[node name="Slab" type="Node3D"]
+
+[node name="Properties" parent="." instance=ExtResource("1_yxfoy")]
+script = ExtResource("2_fxglr")
+collisions = Array[NodePath]([NodePath("../Collision")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, 0)
+mesh = SubResource("BoxMesh_xxlwy")
+
+[node name="Collision" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
+shape = SubResource("BoxShape3D_hacn0")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_mr52k")

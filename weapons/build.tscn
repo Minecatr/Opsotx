@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://bourtnx2ik3y7"]
+
+[ext_resource type="PackedScene" uid="uid://vpidtg3ux4y" path="res://assets/blender/pistol.blend" id="1_gv0wx"]
+[ext_resource type="Script" path="res://weapons/build.gd" id="2_f3tvn"]
+[ext_resource type="Texture2D" uid="uid://dx15srfs5e6ub" path="res://assets/crosshairs/crosshair_01.svg" id="4_4fknq"]
+[ext_resource type="Shader" path="res://crosshair.gdshader" id="4_4ircy"]
+[ext_resource type="PackedScene" uid="uid://bueklw4yck6xu" path="res://structure_button.tscn" id="5_2tuqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arrsq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jsit"]
+shader = ExtResource("4_4ircy")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_h4phf"]
+viewport_path = NodePath("SubViewport")
+
+[node name="build" instance=ExtResource("1_gv0wx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.2, -0.55)
+script = ExtResource("2_f3tvn")
+
+[node name="Cube" parent="." index="0"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_arrsq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer/Control" index="0"]
+material = SubResource("ShaderMaterial_8jsit")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.06, 0.06)
+pivot_offset = Vector2(576, 324)
+texture = ExtResource("4_4fknq")
+stretch_mode = 5
+
+[node name="Menu" type="TabContainer" parent="CanvasLayer/Control" index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.222
+anchor_top = 0.198
+anchor_right = 0.778
+anchor_bottom = 0.79
+offset_left = 0.255981
+offset_top = -0.304016
+offset_right = -0.256042
+offset_bottom = 0.0799866
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Building" type="ScrollContainer" parent="CanvasLayer/Control/Menu" index="1"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/Menu/Building" index="0"]
+layout_mode = 2
+columns = 5
+
+[node name="block" parent="CanvasLayer/Control/Menu/Building/GridContainer" index="0" instance=ExtResource("5_2tuqw")]
+layout_mode = 2
+texture_normal = SubResource("ViewportTexture_h4phf")
+
+[node name="slab" parent="CanvasLayer/Control/Menu/Building/GridContainer" index="1" instance=ExtResource("5_2tuqw")]
+layout_mode = 2
+texture_normal = SubResource("ViewportTexture_h4phf")
+bounds = Vector3(0.5, 0.5, 1)
+cost = 5
+
+[node name="StructurePlacer" type="Node3D" parent="." index="2"]

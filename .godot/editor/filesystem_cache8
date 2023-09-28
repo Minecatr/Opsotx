@@ -1,18 +1,22 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1693867324
+::res://::1695863678
 BulletHole.gd::GDScript::-1::1693851129::0::1::::<>Decal<>::
-bullet_hole.tscn::PackedScene::2006055340276299603::1693867191::0::1::::<><>::uid://bjixv1ldholf::::res://assets/Pistol Concrete Entry 1.png<>res://BulletHole.gd
-crosshair.gdshader::Shader::-1::1693867227::0::1::::<><>::
+bullet_hole.tscn::PackedScene::2006055340276299603::1695856002::0::1::::<><>::uid://bjixv1ldholf::::res://assets/Pistol Concrete Entry 1.png<>res://BulletHole.gd
+crosshair.gdshader::Shader::-1::1695863678::0::1::::<><>::
 Gunshot.gd::GDScript::-1::1693851129::0::1::::<>AudioStreamPlayer3D<>::
-gunshot.tscn::PackedScene::7051888914608535523::1693866680::0::1::::<><>::uid://bgmqpwdg8u3t5::::res://assets/audio/pistol_fire2.wav<>res://shellsound.gd<>uid://1tonfiyfbmrm::::res://assets/audio/shells.wav
+gunshot.tscn::PackedScene::7051888914608535523::1695863677::0::1::::<><>::uid://bgmqpwdg8u3t5::::res://assets/audio/pistol_fire2.wav<>res://shellsound.gd<>uid://cm26sspnq48ec::::res://assets/audio/shells.wav
 icon.svg::CompressedTexture2D::6719397645556818290::1693851129::1693851129::1::::<><>::
-Player.gd::GDScript::-1::1693866670::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::2172976754101387618::1693867191::0::1::::<><>::res://Player.gd<>uid://c2y6q6d8h2oas::::res://icon.svg<>uid://btl7ynqqqv8sl::::res://weapons/pistol.tscn<>uid://cuo2phj5nk52o::::res://weapons/smg.tscn
+Player.gd::GDScript::-1::1693868155::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::2172976754101387618::1695863678::0::1::::<><>::res://Player.gd<>uid://c2y6q6d8h2oas::::res://icon.svg<>uid://btl7ynqqqv8sl::::res://weapons/pistol.tscn<>uid://cuo2phj5nk52o::::res://weapons/smg.tscn<>uid://bourtnx2ik3y7::::res://weapons/build.tscn
+properties.gd::GDScript::-1::1695856711::0::1::::<>Node<>::
+properties.tscn::PackedScene::4416366659106159750::1695851801::0::1::::<><>::
 README.md::TextFile::-1::1693851129::0::1::::<><>::
 shellsound.gd::GDScript::-1::1693851129::0::1::::<>AudioStreamPlayer3D<>::
 ShellSoundRayCast.gd::GDScript::-1::1693866670::0::1::::<>RayCast3D<>::
-world.gd::GDScript::-1::1693851129::0::1::::<>Node<>::
-world.tscn::PackedScene::1554951890710497202::1693867190::0::1::::<><>::res://world.gd<>uid://dsmntphpfx65u::::res://addons/kenney_prototype_textures/dark/texture_03.png<>uid://biycecntmghpj::::res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr
+StructureButton.gd::GDScript::-1::1695854061::0::1::::<>TextureButton<>::
+structure_button.tscn::PackedScene::3799083082537190094::1695863678::0::1::::<><>::res://StructureButton.gd
+world.gd::GDScript::-1::1693869469::0::1::::<>Node<>::
+world.tscn::PackedScene::1554951890710497202::1695863677::0::1::::<><>::res://world.gd<>uid://dsmntphpfx65u::::res://addons/kenney_prototype_textures/dark/texture_03.png<>uid://biycecntmghpj::::res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr
 ::res://addons/::1693865760
 ::res://addons/kenney_particle_pack/::1693866757
 circle_01.png::CompressedTexture2D::6841981818361851813::1693851129::1693851129::1::::<><>::
@@ -200,9 +204,10 @@ texture_10.png::CompressedTexture2D::2089073669024376030::1693851129::1693851129
 texture_11.png::CompressedTexture2D::2100448570905025607::1693851129::1693851129::1::::<><>::
 texture_12.png::CompressedTexture2D::8531055701183175579::1693851129::1693851129::1::::<><>::
 texture_13.png::CompressedTexture2D::6819350983317222168::1693851129::1693851129::1::::<><>::
-::res://assets/::1693865784
+::res://assets/::1695853004
 opsotx.svg::CompressedTexture2D::5179360712179985083::1693851129::1693865784::1::::<><>::
 Pistol Concrete Entry 1.png::CompressedTexture2D::89296196285872891::1693851129::1693851129::1::::<><>::
+selected.tres::StandardMaterial3D::1748330514146284237::1695853004::0::1::::<><>::
 ::res://assets/audio/::1693865784
 pistol_fire2.wav::AudioStreamWAV::2833325697828496708::1693851129::1693851129::1::::<><>::
 shell1.wav::AudioStreamWAV::9219188721175702899::1693851129::1693865784::1::::<><>::
@@ -240,10 +245,15 @@ scene.gltf::PackedScene::5442918584609933584::1693851129::1693851129::1::::<><>:
 08_-_Default_baseColor.png::CompressedTexture2D::7933478813458399139::1693851129::1693851129::1::::<><>::
 ::res://gpuparticlesdata/::1693865761
 world.GPUParticlesCollisionSDF3D_data.exr::CompressedTexture3D::2997605202064658483::1693851129::1693851129::1::::<><>::
-::res://weapons/::1693867191
+::res://structures/::1695863678
+block.tscn::PackedScene::5100779942243886597::1695863678::0::1::::<><>::uid://b36k6cfs8xq1k::::res://properties.tscn<>res://properties.gd
+slab.tscn::PackedScene::1406904728424160379::1695863761::0::1::::<><>::uid://b36k6cfs8xq1k::::res://properties.tscn<>res://properties.gd
+::res://weapons/::1695863677
+build.gd::GDScript::-1::1695863673::0::1::::<>Node3D<>::
+build.tscn::PackedScene::3411418888239899696::1695863677::0::1::::<><>::uid://vpidtg3ux4y::::res://assets/blender/pistol.blend<>res://weapons/build.gd<>uid://dx15srfs5e6ub::::res://assets/crosshairs/crosshair_01.svg<>res://crosshair.gdshader<>uid://bueklw4yck6xu::::res://structure_button.tscn
 pistol.gd::GDScript::-1::1693867190::0::1::::<>Node3D<>::
-pistol.tscn::PackedScene::3744703379202253083::1693867297::0::1::::<><>::uid://vpidtg3ux4y::::res://assets/blender/pistol.blend<>res://weapons/pistol.gd<>uid://diaedqymsurpu::::res://addons/kenney_particle_pack/star_06.png<>res://crosshair.gdshader<>uid://btv1yiui5sr2u::::res://assets/crosshairs/crosshair_09.svg<>uid://0chdn5wi4tq1::::res://assets/weapons/beretta_m92/textures/Material.008_baseColor.png
+pistol.tscn::PackedScene::3744703379202253083::1695856002::0::1::::<><>::uid://vpidtg3ux4y::::res://assets/blender/pistol.blend<>res://weapons/pistol.gd<>uid://diaedqymsurpu::::res://addons/kenney_particle_pack/star_06.png<>res://crosshair.gdshader<>uid://btv1yiui5sr2u::::res://assets/crosshairs/crosshair_09.svg<>uid://0chdn5wi4tq1::::res://assets/weapons/beretta_m92/textures/Material.008_baseColor.png
 shells_vector.gd::GDScript::-1::1693866637::0::1::::<>GPUParticles3D<>::
-shells_vector.tscn::PackedScene::2754746557673823125::1693867191::0::1::::<><>::uid://c3f1o43t4nh3u::::res://assets/weapons/kriss_vector/textures/03_-_Default_1_baseColor.png<>res://weapons/shells_vector.gd
+shells_vector.tscn::PackedScene::2754746557673823125::1695863677::0::1::::<><>::uid://c3f1o43t4nh3u::::res://assets/weapons/kriss_vector/textures/03_-_Default_1_baseColor.png<>res://weapons/shells_vector.gd
 smg.gd::GDScript::-1::1693867190::0::1::::<>Node3D<>::
-smg.tscn::PackedScene::6207186057364509116::1693867191::0::1::::<><>::uid://vpidtg3ux4y::::res://assets/blender/pistol.blend<>res://weapons/smg.gd<>uid://dlbbib6symfff::::res://assets/weapons/kriss_vector/textures/08_-_Default_baseColor.png<>uid://diaedqymsurpu::::res://addons/kenney_particle_pack/star_06.png<>uid://dl4js3ldxe1sm::::res://assets/weapons/kriss_vector/textures/02_-_Default_baseColor.png<>res://crosshair.gdshader<>uid://2rsjiycmddhj::::res://assets/weapons/kriss_vector/textures/03_-_Default_baseColor.png<>uid://ba56jmlmy5ucy::::res://assets/weapons/kriss_vector/textures/02_-_Default_0_baseColor.png<>uid://d3h2xlcol7uny::::res://assets/crosshairs/crosshair_04.svg
+smg.tscn::PackedScene::6207186057364509116::1695856002::0::1::::<><>::uid://vpidtg3ux4y::::res://assets/blender/pistol.blend<>res://weapons/smg.gd<>uid://dlbbib6symfff::::res://assets/weapons/kriss_vector/textures/08_-_Default_baseColor.png<>uid://diaedqymsurpu::::res://addons/kenney_particle_pack/star_06.png<>uid://dl4js3ldxe1sm::::res://assets/weapons/kriss_vector/textures/02_-_Default_baseColor.png<>res://crosshair.gdshader<>uid://2rsjiycmddhj::::res://assets/weapons/kriss_vector/textures/03_-_Default_baseColor.png<>uid://ba56jmlmy5ucy::::res://assets/weapons/kriss_vector/textures/02_-_Default_0_baseColor.png<>uid://d3h2xlcol7uny::::res://assets/crosshairs/crosshair_04.svg

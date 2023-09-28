@@ -10,7 +10,7 @@ func _ready():
 #		print(index)
 		l += soundlengths[index]
 	
-func _process(delta):
+func _process(_delta):
 	if get_playback_position() >= l:
 		_on_finished()
 	

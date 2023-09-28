@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal health_changed(health_value)
+signal money_changed(money_value)
 
 @export var selected_weapon = 0
 
@@ -11,6 +12,7 @@ signal health_changed(health_value)
 
 var health = 100
 var menu = false
+var money = 1000
 
 const MOUSE_SENSITIVITY = 0.0025
 const JUMP_VELOCITY = 8.0
@@ -107,4 +109,8 @@ func recieve_damage(damage):
 		position = Vector3(randf()-0.5,5,randf()-0.5)
 	health_changed.emit(health)
 
-
+@rpc("call_local")
+func change_money(amt):
+	money += amt
+	if multiplayer.get_unique_id()==name.to_int():
+		get_parent().get_node("CanvasLayer/HUD/Label").text = "$"+str(money)

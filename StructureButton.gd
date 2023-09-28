@@ -1,6 +1,5 @@
 extends TextureButton
 
-@export var bounds : Vector3 = Vector3.ONE
 @export var cost : int = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():

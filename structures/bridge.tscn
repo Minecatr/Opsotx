@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cew4docy267gr"]
+[gd_scene load_steps=7 format=3 uid="uid://ftttqiaw70ww"]
 
-[ext_resource type="PackedScene" uid="uid://b36k6cfs8xq1k" path="res://properties.tscn" id="1_cxgj0"]
-[ext_resource type="Script" path="res://structures/block.gd" id="1_tjl7n"]
-[ext_resource type="Script" path="res://properties.gd" id="2_l4c0a"]
+[ext_resource type="Script" path="res://structures/block.gd" id="1_2iiub"]
+[ext_resource type="PackedScene" uid="uid://b36k6cfs8xq1k" path="res://properties.tscn" id="2_m374a"]
+[ext_resource type="Script" path="res://properties.gd" id="3_n2q3r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xxlwy"]
+size = Vector3(2, 0.25, 0.625)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hacn0"]
+size = Vector3(2, 0.25, 0.625)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mr52k"]
 properties/0/path = NodePath(".:position")
@@ -22,19 +24,21 @@ properties/2/spawn = true
 properties/2/sync = true
 properties/2/watch = false
 
-[node name="Block" type="Node3D"]
-script = ExtResource("1_tjl7n")
+[node name="Bridge" type="Node3D"]
+script = ExtResource("1_2iiub")
 
-[node name="Properties" parent="." instance=ExtResource("1_cxgj0")]
-script = ExtResource("2_l4c0a")
+[node name="Properties" parent="." instance=ExtResource("2_m374a")]
+script = ExtResource("3_n2q3r")
 collisions = Array[NodePath]([NodePath("../Collision")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.625, 0)
 mesh = SubResource("BoxMesh_xxlwy")
 
 [node name="Collision" type="StaticBody3D" parent="." groups=["structure"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.625, 0)
 shape = SubResource("BoxShape3D_hacn0")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

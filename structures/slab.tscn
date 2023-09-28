@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ubrrrymn5efb"]
+[gd_scene load_steps=7 format=3 uid="uid://ubrrrymn5efb"]
 
+[ext_resource type="Script" path="res://structures/block.gd" id="1_ci0os"]
 [ext_resource type="PackedScene" uid="uid://b36k6cfs8xq1k" path="res://properties.tscn" id="1_yxfoy"]
 [ext_resource type="Script" path="res://properties.gd" id="2_fxglr"]
 
@@ -20,6 +21,8 @@ properties/1/sync = true
 properties/1/watch = false
 
 [node name="Slab" type="Node3D"]
+script = ExtResource("1_ci0os")
+health = 25
 
 [node name="Properties" parent="." instance=ExtResource("1_yxfoy")]
 script = ExtResource("2_fxglr")
@@ -29,7 +32,7 @@ collisions = Array[NodePath]([NodePath("../Collision")])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, 0)
 mesh = SubResource("BoxMesh_xxlwy")
 
-[node name="Collision" type="StaticBody3D" parent="."]
+[node name="Collision" type="StaticBody3D" parent="." groups=["structure"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]

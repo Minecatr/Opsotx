@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bourtnx2ik3y7"]
+[gd_scene load_steps=10 format=3 uid="uid://bourtnx2ik3y7"]
 
 [ext_resource type="PackedScene" uid="uid://vpidtg3ux4y" path="res://assets/blender/pistol.blend" id="1_gv0wx"]
 [ext_resource type="Script" path="res://weapons/build.gd" id="2_f3tvn"]
@@ -11,7 +11,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jsit"]
 shader = ExtResource("4_4ircy")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h4phf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_08wpk"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4dyto"]
 viewport_path = NodePath("SubViewport")
 
 [node name="build" instance=ExtResource("1_gv0wx")]
@@ -77,12 +80,16 @@ columns = 5
 
 [node name="block" parent="CanvasLayer/Control/Menu/Building/GridContainer" index="0" instance=ExtResource("5_2tuqw")]
 layout_mode = 2
-texture_normal = SubResource("ViewportTexture_h4phf")
+texture_normal = SubResource("ViewportTexture_08wpk")
 
 [node name="slab" parent="CanvasLayer/Control/Menu/Building/GridContainer" index="1" instance=ExtResource("5_2tuqw")]
 layout_mode = 2
-texture_normal = SubResource("ViewportTexture_h4phf")
-bounds = Vector3(0.5, 0.5, 1)
+texture_normal = SubResource("ViewportTexture_4dyto")
+cost = 5
+
+[node name="bridge" parent="CanvasLayer/Control/Menu/Building/GridContainer" index="2" instance=ExtResource("5_2tuqw")]
+layout_mode = 2
+texture_normal = SubResource("ViewportTexture_4dyto")
 cost = 5
 
 [node name="StructurePlacer" type="Node3D" parent="." index="2"]

@@ -1,12 +1,12 @@
+Panel
+Label
 MultiplayerSynchronizer
 MultiplayerSpawner
 CollisionShape3D
 StaticBody3D
-Label
 DirectionalLight3D
 Camera3D
 SubViewport
-Panel
 TextureButton
 Button
 GridContainer

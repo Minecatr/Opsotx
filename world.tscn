@@ -147,6 +147,22 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5udh5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b8g6c")
 value = 100.0
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.977
+anchor_top = 0.043
+anchor_right = 0.977
+anchor_bottom = 0.043
+offset_left = -0.504028
+offset_top = -19.864
+offset_right = 18.496
+offset_bottom = 20.136
+grow_horizontal = 0
+text = "$1000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="StructureSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://structures/block.tscn", "res://structures/slab.tscn")
 spawn_path = NodePath("../PlayerStructures")

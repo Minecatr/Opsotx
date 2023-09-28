@@ -6,6 +6,7 @@ extends Node
 @onready var port_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/PortEntry
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
+@onready var moneydisplay = $CanvasLayer/HUD/Label
 
 const PLAYER = preload("res://player.tscn")
 var enet_peer = ENetMultiplayerPeer.new()

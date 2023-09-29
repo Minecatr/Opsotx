@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3ugnlymj503i"]
+[gd_scene load_steps=11 format=3 uid="uid://c3ugnlymj503i"]
 
 [ext_resource type="Script" path="res://car.gd" id="1_qi3em"]
 [ext_resource type="Texture2D" uid="uid://c2y6q6d8h2oas" path="res://icon.svg" id="2_a1edm"]
+[ext_resource type="PackedScene" uid="uid://b36k6cfs8xq1k" path="res://properties.tscn" id="3_n60n2"]
+[ext_resource type="Script" path="res://properties.gd" id="4_vtmqg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6c1st"]
 size = Vector3(1.5, 0.5, 2)
@@ -21,31 +23,19 @@ height = 0.25
 radius = 3.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3xqqr"]
-properties/0/path = NodePath(".:engine_force")
+properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
-properties/1/path = NodePath(".:brake")
+properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/sync = true
 properties/1/watch = false
-properties/2/path = NodePath(".:steering")
-properties/2/spawn = true
-properties/2/sync = true
-properties/2/watch = false
-properties/3/path = NodePath(".:position")
-properties/3/spawn = true
-properties/3/sync = true
-properties/3/watch = false
-properties/4/path = NodePath(".:rotation")
-properties/4/spawn = true
-properties/4/sync = true
-properties/4/watch = false
 
 [node name="Car" type="VehicleBody3D" groups=["vehicle"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mass = 100.0
 continuous_cd = true
+freeze = true
 script = ExtResource("1_qi3em")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -141,7 +131,16 @@ collision_mask = 8
 shape = SubResource("SphereShape3D_lnv0w")
 
 [node name="Seat" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_3xqqr")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("../Seat")
+
+[node name="Properties" parent="." instance=ExtResource("3_n60n2")]
+script = ExtResource("4_vtmqg")
+collisions = Array[NodePath]([NodePath("../CollisionShape3D"), NodePath("../Area3D")])
+visuals = Array[NodePath]([NodePath("../MeshInstance3D"), NodePath("../FrontLeft/MeshInstance3D"), NodePath("../FrontRight/MeshInstance3D"), NodePath("../BackLeft/MeshInstance3D"), NodePath("../BackRight/MeshInstance3D")])

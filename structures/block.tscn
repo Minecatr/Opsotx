@@ -28,8 +28,9 @@ script = ExtResource("1_tjl7n")
 [node name="Properties" parent="." instance=ExtResource("1_cxgj0")]
 script = ExtResource("2_l4c0a")
 collisions = Array[NodePath]([NodePath("../Collision")])
+visuals = Array[NodePath]([NodePath("../MeshInstance3D")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_xxlwy")
 
 [node name="Collision" type="StaticBody3D" parent="." groups=["structure"]]

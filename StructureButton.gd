@@ -5,6 +5,7 @@ extends TextureButton
 func _ready():
 	$Label.text = str(cost)
 	var c = load("res://structures/"+name+".tscn").instantiate()
+	c.get_node("MultiplayerSynchronizer").queue_free()
 	$SubViewport/Camera3D.position = c.get_node("Properties").camerapos
 	$SubViewport.add_child(c)
 	texture_normal = $SubViewport.get_texture()

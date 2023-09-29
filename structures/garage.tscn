@@ -37,8 +37,9 @@ health = 1000
 [node name="Properties" parent="." instance=ExtResource("2_u8g23")]
 script = ExtResource("3_ddmch")
 collisions = Array[NodePath]([NodePath("../Collision")])
+visuals = Array[NodePath]([NodePath("../MeshInstance3D"), NodePath("../MeshInstance3D2"), NodePath("../MeshInstance3D3")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.375, 0)
 mesh = SubResource("BoxMesh_xxlwy")
 
@@ -55,10 +56,10 @@ shape = SubResource("BoxShape3D_48d1i")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_mr52k")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." groups=["build"]]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.875, 0.25, 0)
 mesh = SubResource("BoxMesh_w3itd")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." groups=["build"]]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.875, 1, 0)
 mesh = SubResource("PrismMesh_lco5q")

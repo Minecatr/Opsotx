@@ -109,9 +109,8 @@ func select(structure):
 			c.queue_free()
 	if selected != "":
 		var currentstructure = load("res://Structures/"+selected+".tscn").instantiate()
-		for collider in currentstructure.get_node("Properties").collisions:
-			currentstructure.get_node("Properties").get_node(collider).queue_free()
-		for c in currentstructure.get_children():
-			if c.is_in_group("build"):
-				c.material_override = load("res://assets/selected.tres")
+		for c in currentstructure.get_node("Properties").collisions:
+			currentstructure.get_node("Properties").get_node(c).queue_free()
+		for c in currentstructure.get_node("Properties").visuals:
+			currentstructure.get_node("Properties").get_node(c).material_override = load("res://assets/selected.tres")
 		structureplacer.add_child(currentstructure)

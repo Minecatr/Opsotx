@@ -1,13 +1,13 @@
+MultiplayerSpawner
+Camera3D
 CollisionShape3D
 Area3D
 MultiplayerSynchronizer
 MeshInstance3D
 Panel
 Label
-MultiplayerSpawner
 StaticBody3D
 DirectionalLight3D
-Camera3D
 SubViewport
 TextureButton
 Button

@@ -11,15 +11,6 @@ offset_bottom = 40.0
 texture_normal = SubResource("ViewportTexture_sejjc")
 script = ExtResource("1_q66xv")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="SubViewport" type="SubViewport" parent="."]
 own_world_3d = true
 transparent_bg = true
@@ -31,7 +22,18 @@ projection = 1
 size = 2.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

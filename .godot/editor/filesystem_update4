@@ -1,6 +1,5 @@
 res://world.tscn
 res://crosshair.gdshader
-res://weapons/build.gd
 res://weapons/shells_vector.tscn
 res://gunshot.tscn
 res://weapons/build.tscn
@@ -8,14 +7,13 @@ res://structure_button.tscn
 res://structures/block.tscn
 res://player.tscn
 res://structures/slab.tscn
-res://StructureButton.gd
-res://weapons/pistol.gd
-res://structures/block.gd
-res://weapons/smg.gd
 res://structures/bridge.tscn
-res://Player.gd
-res://world.gd
-res://shellsound.gd
 res://structures/garage.tscn
 res://structures/car.tscn
+res://Player.gd
 res://car.gd
+res://StructureButton.gd
+res://weapons/pistol.gd
+res://weapons/smg.gd
+res://weapons/build.gd
+res://properties.gd

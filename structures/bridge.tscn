@@ -30,8 +30,9 @@ script = ExtResource("1_2iiub")
 [node name="Properties" parent="." instance=ExtResource("2_m374a")]
 script = ExtResource("3_n2q3r")
 collisions = Array[NodePath]([NodePath("../Collision")])
+visuals = Array[NodePath]([NodePath("../MeshInstance3D")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.625, 0)
 mesh = SubResource("BoxMesh_xxlwy")
 

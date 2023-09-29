@@ -12,10 +12,10 @@ signal money_changed(money_value)
 
 var health = 100
 var menu = false
-var money = 1000
+var money = 10000
 
 var input_dir = Vector2.ZERO
-var vehicle = false
+var in_vehicle = false
 var vehiclenode
 
 const MOUSE_SENSITIVITY = 0.0025
@@ -34,6 +34,7 @@ func _enter_tree():
 
 func _ready():
 	if not is_multiplayer_authority(): return
+	get_tree().get_root().get_node("World").get_node("CanvasLayer/HUD/Label").text = "$"+str(money)
 	position = Vector3(randf()-0.5,5,randf()-0.5)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
@@ -87,8 +88,10 @@ func _physics_process(delta):
 		weapon.get_child(selected_weapon).play("move")
 	else:
 		weapon.get_child(selected_weapon).play("idle")
-	if !vehicle:
+	if !in_vehicle:
 		move_and_slide()
+	else:
+		vehicle_controls.rpc(lerp(vehiclenode.steering,-input_dir.x * vehiclenode.steering_speed * delta * 100,0.2),-input_dir.y * vehiclenode.engine_speed * delta * 100)
 
 func _process(_delta):
 	if multiplayer.get_unique_id()==name.to_int():
@@ -97,22 +100,11 @@ func _process(_delta):
 			if Input.is_action_just_pressed(str(n)) and n <= weapon.get_child_count():
 				selected_weapon = n-1
 				equip.rpc()
-			if !vehicle:
-				if Input.is_action_just_pressed("interact"):
-					if !vehicle:
-						for area in $Area3D.get_overlapping_areas():
-							var c = area.get_parent()
-							if c.is_in_group("vehicle"):
-								vehicle = true
-								reparent(c.get_node("Seat"))
-								transform = c.get_node("Seat").transform
-								vehiclenode = c
-								#c.position += Vector3(0,5,0)
-								break
-					else:
-						vehicle = false
-						reparent(get_parent().get_parent().get_parent())
-						rotation = Vector3(0,rotation.y,0)
+		if Input.is_action_just_pressed("interact"):
+			if !in_vehicle:
+				enter_vehicle.rpc()
+			else:
+				exit_vehicle.rpc()
 	else:
 		equip()
 
@@ -134,3 +126,28 @@ func change_money(amt):
 	money += amt
 	if multiplayer.get_unique_id()==name.to_int():
 		get_tree().get_root().get_node("World").get_node("CanvasLayer/HUD/Label").text = "$"+str(money)
+
+@rpc("call_local")
+func enter_vehicle():
+	for area in $Area3D.get_overlapping_areas():
+		var c = area.get_parent()
+		if c.is_in_group("vehicle") and c.get_node("Seat").get_child_count() == 0:
+			reparent(c.get_node("Seat"))
+			transform = c.get_node("Seat").transform
+			rotation.y += 180
+			vehiclenode = c
+			in_vehicle = true
+			break
+
+@rpc("call_local")
+func exit_vehicle():
+	vehiclenode.steering = 0
+	vehiclenode.engine_force = 0
+	reparent(get_parent().get_parent().get_parent())
+	rotation = Vector3(0,rotation.y,0)
+	in_vehicle = false
+
+@rpc("call_local")
+func vehicle_controls(steer,engine):
+	vehiclenode.steering = steer
+	vehiclenode.engine_force = engine

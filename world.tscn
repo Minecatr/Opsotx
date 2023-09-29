@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://wfh3ial3tyxm"]
+[gd_scene load_steps=10 format=3 uid="uid://wfh3ial3tyxm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_76v8a"]
 [ext_resource type="Texture2D" uid="uid://dsmntphpfx65u" path="res://addons/kenney_prototype_textures/dark/texture_03.png" id="1_ovtjs"]
 [ext_resource type="CompressedTexture3D" uid="uid://biycecntmghpj" path="res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr" id="3_bnflb"]
-[ext_resource type="PackedScene" uid="uid://c3ugnlymj503i" path="res://structures/car.tscn" id="4_giiyd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sortk"]
 albedo_texture = ExtResource("1_ovtjs")
@@ -51,8 +50,8 @@ size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_sortk")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/CSGCombiner3D"]
-transform = Transform3D(0.783895, -0.309702, -0.538138, 0.0620192, 0.901439, -0.428441, 0.617788, 0.302478, 0.725841, 3.22941, 0.434178, 0)
-size = Vector3(1, 1, 6.68776)
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866026, 0, 0, 0, 1, 8, 1.5, 0)
+size = Vector3(8, 1, 6)
 
 [node name="GPUParticlesCollisionSDF3D" type="GPUParticlesCollisionSDF3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -160,12 +159,12 @@ offset_top = -19.864
 offset_right = 18.496
 offset_bottom = 20.136
 grow_horizontal = 0
-text = "$1000"
+text = "$0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="StructureSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://structures/block.tscn", "res://structures/slab.tscn", "res://structures/garage.tscn", "res://structures/bridge.tscn")
+_spawnable_scenes = PackedStringArray("res://structures/block.tscn", "res://structures/slab.tscn", "res://structures/garage.tscn", "res://structures/bridge.tscn", "res://structures/car.tscn")
 spawn_path = NodePath("../PlayerStructures")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
@@ -182,9 +181,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="BulletHoles" type="Node" parent="."]
 
 [node name="PlayerStructures" type="Node" parent="."]
-
-[node name="Car" parent="PlayerStructures" instance=ExtResource("4_giiyd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 2)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

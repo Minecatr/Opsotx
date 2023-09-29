@@ -73,8 +73,11 @@ func sh():
 			var hit_player = raycast.get_collider()
 			hit_player.recieve_damage.rpc_id(hit_player.get_multiplayer_authority(),damage)
 		elif raycast.get_collider().is_in_group("structure"):
-				var hit = raycast.get_collider().get_parent()
-				hit.recieve_damage.rpc(damage)
+			var hit = raycast.get_collider().get_parent()
+			hit.recieve_damage.rpc(damage)
+		elif raycast.get_collider().is_in_group("vehicle"):
+			var hit = raycast.get_collider()
+			hit.recieve_damage.rpc(damage)
 		else:
 			var bh = bullet_hole.instantiate()
 			bh.position = raycast.get_collision_point()

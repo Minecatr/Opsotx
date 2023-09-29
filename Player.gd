@@ -14,6 +14,10 @@ var health = 100
 var menu = false
 var money = 1000
 
+var input_dir = Vector2.ZERO
+var vehicle = false
+var vehiclenode
+
 const MOUSE_SENSITIVITY = 0.0025
 const JUMP_VELOCITY = 8.0
 const ACCELERATION = 10.0
@@ -66,7 +70,6 @@ func _physics_process(delta):
 	var speed = RUN_SPEED if Input.is_action_pressed("sprint") else WALK_SPEED
 
 	# Get the input direction and handle the movement/deceleration.
-	var input_dir = Vector2.ZERO
 	if !menu:
 		input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -84,7 +87,8 @@ func _physics_process(delta):
 		weapon.get_child(selected_weapon).play("move")
 	else:
 		weapon.get_child(selected_weapon).play("idle")
-	move_and_slide()
+	if !vehicle:
+		move_and_slide()
 
 func _process(_delta):
 	if multiplayer.get_unique_id()==name.to_int():
@@ -93,6 +97,22 @@ func _process(_delta):
 			if Input.is_action_just_pressed(str(n)) and n <= weapon.get_child_count():
 				selected_weapon = n-1
 				equip.rpc()
+			if !vehicle:
+				if Input.is_action_just_pressed("interact"):
+					if !vehicle:
+						for area in $Area3D.get_overlapping_areas():
+							var c = area.get_parent()
+							if c.is_in_group("vehicle"):
+								vehicle = true
+								reparent(c.get_node("Seat"))
+								transform = c.get_node("Seat").transform
+								vehiclenode = c
+								#c.position += Vector3(0,5,0)
+								break
+					else:
+						vehicle = false
+						reparent(get_parent().get_parent().get_parent())
+						rotation = Vector3(0,rotation.y,0)
 	else:
 		equip()
 
@@ -113,4 +133,4 @@ func recieve_damage(damage):
 func change_money(amt):
 	money += amt
 	if multiplayer.get_unique_id()==name.to_int():
-		get_parent().get_node("CanvasLayer/HUD/Label").text = "$"+str(money)
+		get_tree().get_root().get_node("World").get_node("CanvasLayer/HUD/Label").text = "$"+str(money)

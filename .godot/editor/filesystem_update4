@@ -16,3 +16,6 @@ res://structures/bridge.tscn
 res://Player.gd
 res://world.gd
 res://shellsound.gd
+res://structures/garage.tscn
+res://structures/car.tscn
+res://car.gd

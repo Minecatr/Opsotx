@@ -1,8 +1,10 @@
+CollisionShape3D
+Area3D
+MultiplayerSynchronizer
+MeshInstance3D
 Panel
 Label
-MultiplayerSynchronizer
 MultiplayerSpawner
-CollisionShape3D
 StaticBody3D
 DirectionalLight3D
 Camera3D
@@ -10,7 +12,6 @@ SubViewport
 TextureButton
 Button
 GridContainer
-MeshInstance3D
 Node
 Node3D
 ScrollContainer
@@ -29,4 +30,3 @@ CanvasLayer
 CSGBox3D
 Decal
 Marker3D
-SpinBox

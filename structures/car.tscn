@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3ugnlymj503i"]
+
+[ext_resource type="Script" path="res://car.gd" id="1_qi3em"]
+[ext_resource type="Texture2D" uid="uid://c2y6q6d8h2oas" path="res://icon.svg" id="2_a1edm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6c1st"]
+size = Vector3(1.5, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_35q2n"]
+size = Vector3(1.5, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsdkm"]
+albedo_color = Color(0.145098, 0.145098, 0.145098, 1)
+albedo_texture = ExtResource("2_a1edm")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r1sia"]
+material = SubResource("StandardMaterial3D_rsdkm")
+height = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lnv0w"]
+radius = 3.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3xqqr"]
+properties/0/path = NodePath(".:engine_force")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:brake")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath(".:steering")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+properties/3/path = NodePath(".:position")
+properties/3/spawn = true
+properties/3/sync = true
+properties/3/watch = false
+properties/4/path = NodePath(".:rotation")
+properties/4/spawn = true
+properties/4/sync = true
+properties/4/watch = false
+
+[node name="Car" type="VehicleBody3D" groups=["vehicle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mass = 100.0
+continuous_cd = true
+script = ExtResource("1_qi3em")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6c1st")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_35q2n")
+
+[node name="FrontLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0, 0.75)
+use_as_traction = true
+use_as_steering = true
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_r1sia")
+
+[node name="FrontRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0, 0.75)
+use_as_traction = true
+use_as_steering = true
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_r1sia")
+
+[node name="BackLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0, -0.75)
+use_as_traction = true
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_r1sia")
+
+[node name="BackRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0, -0.75)
+use_as_traction = true
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_r1sia")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Speed" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0 KPH"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBox" type="CheckButton" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Racing Cam"
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_lnv0w")
+
+[node name="Seat" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.7, 0)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_3xqqr")

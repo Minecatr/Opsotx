@@ -57,7 +57,7 @@ func use():
 				var bh = bullet_hole.instantiate()
 				bh.position = raycast.get_collision_point()
 				var normal = raycast.get_collision_normal()
-				get_parent().get_parent().get_parent().get_parent().get_node("BulletHoles").add_child(bh, true)
+				get_tree().get_root().get_node("World").get_node("BulletHoles").add_child(bh, true)
 				if normal != Vector3.UP:
 				# look in the direction of the normal
 					bh.look_at(raycast.get_collision_point() + normal, Vector3.UP)

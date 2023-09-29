@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3ctx7t6id883"]
+
+[ext_resource type="Script" path="res://structures/block.gd" id="1_e252j"]
+[ext_resource type="PackedScene" uid="uid://b36k6cfs8xq1k" path="res://properties.tscn" id="2_u8g23"]
+[ext_resource type="Script" path="res://properties.gd" id="3_ddmch"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xxlwy"]
+size = Vector3(6, 0.25, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hacn0"]
+size = Vector3(6, 0.25, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48d1i"]
+size = Vector3(0.25, 1.5, 0.75)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mr52k"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
+[sub_resource type="BoxMesh" id="BoxMesh_w3itd"]
+size = Vector3(0.25, 1, 0.75)
+
+[sub_resource type="PrismMesh" id="PrismMesh_lco5q"]
+left_to_right = 0.0
+size = Vector3(0.25, 0.5, 0.75)
+
+[node name="Garage" type="Node3D"]
+script = ExtResource("1_e252j")
+health = 1000
+
+[node name="Properties" parent="." instance=ExtResource("2_u8g23")]
+script = ExtResource("3_ddmch")
+collisions = Array[NodePath]([NodePath("../Collision")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.375, 0)
+mesh = SubResource("BoxMesh_xxlwy")
+
+[node name="Collision" type="StaticBody3D" parent="." groups=["structure"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.375469, 0)
+shape = SubResource("BoxShape3D_hacn0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.875, 0.499895, 0)
+shape = SubResource("BoxShape3D_48d1i")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_mr52k")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." groups=["build"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.875, 0.25, 0)
+mesh = SubResource("BoxMesh_w3itd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." groups=["build"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.875, 1, 0)
+mesh = SubResource("PrismMesh_lco5q")

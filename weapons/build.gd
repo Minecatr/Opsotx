@@ -91,7 +91,7 @@ func use():
 
 @rpc("call_local")
 func destroy_structure(structure):
-	get_parent().get_parent().get_parent().get_parent().get_node("PlayerStructures").get_child(structure).queue_free()
+	get_tree().get_root().get_node("World").get_node("PlayerStructures").get_child(structure).queue_free()
 
 @rpc("call_local")
 func place(s,pos,rot):
@@ -100,7 +100,7 @@ func place(s,pos,rot):
 	c.rotation = rot
 	c.get_node("Properties").placer = get_parent().get_parent().get_parent()
 	get_parent().get_parent().get_parent().change_money.rpc(-selected_cost)
-	get_parent().get_parent().get_parent().get_parent().get_node("PlayerStructures").add_child(c,true)
+	get_tree().get_root().get_node("World").get_node("PlayerStructures").add_child(c,true)
 
 func select(structure):
 	selected = structure.name

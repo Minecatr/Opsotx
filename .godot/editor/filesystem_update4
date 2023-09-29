@@ -17,3 +17,4 @@ res://weapons/pistol.gd
 res://weapons/smg.gd
 res://weapons/build.gd
 res://properties.gd
+res://gpuparticlesdata/world.GPUParticlesCollisionSDF3D_data.exr

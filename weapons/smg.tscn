@@ -1,6 +1,5 @@
-[gd_scene load_steps=65 format=3 uid="uid://cuo2phj5nk52o"]
+[gd_scene load_steps=64 format=3 uid="uid://cuo2phj5nk52o"]
 
-[ext_resource type="PackedScene" uid="uid://vpidtg3ux4y" path="res://assets/blender/pistol.blend" id="1_flt83"]
 [ext_resource type="Script" path="res://weapons/smg.gd" id="2_r1hvl"]
 [ext_resource type="Texture2D" uid="uid://dlbbib6symfff" path="res://assets/weapons/kriss_vector/textures/08_-_Default_baseColor.png" id="3_2d1qc"]
 [ext_resource type="Texture2D" uid="uid://diaedqymsurpu" path="res://addons/kenney_particle_pack/star_06.png" id="3_boxxl"]
@@ -930,15 +929,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mx3dm")
 
-[node name="smg" instance=ExtResource("1_flt83")]
+[node name="smg" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.2, -0.55)
 script = ExtResource("2_r1hvl")
 
-[node name="Cube" parent="." index="0"]
-transform = Transform3D(-2.18557e-10, 0, -0.005, 0, 0.005, 0, 0.005, 0, -2.18557e-10, 0, -0.3, -0.125)
-visible = false
-
-[node name="MuzzleFlash" type="GPUParticles3D" parent="." index="1"]
+[node name="MuzzleFlash" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0597082, -0.499516)
 emitting = false
 amount = 1
@@ -948,22 +943,22 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_5i5hm")
 draw_pass_1 = SubResource("PlaneMesh_ebuql")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0597082, -0.499516)
 light_color = Color(1, 0.909804, 0.54902, 1)
 light_energy = 0.0
 shadow_enabled = true
 omni_range = 15.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_default_blend_time = 0.05
 libraries = {
 "": SubResource("AnimationLibrary_0dpro")
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+[node name="Control" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -973,7 +968,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control" index="0"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.993
@@ -987,13 +982,13 @@ offset_bottom = -0.223999
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Ammo" type="Label" parent="CanvasLayer/Control/PanelContainer" index="0"]
+[node name="Ammo" type="Label" parent="CanvasLayer/Control/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "30"
 
-[node name="Crosshair" type="TextureRect" parent="CanvasLayer/Control" index="1"]
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer/Control"]
 material = SubResource("ShaderMaterial_lyjpt")
 layout_mode = 1
 anchors_preset = -1
@@ -1012,148 +1007,148 @@ pivot_offset = Vector2(576, 324)
 texture = ExtResource("6_fgjio")
 stretch_mode = 5
 
-[node name="Model" type="Node3D" parent="." index="5"]
+[node name="Model" type="Node3D" parent="."]
 transform = Transform3D(-2.18557e-10, 0, -0.005, -1.16415e-10, 0.005, 6.93889e-18, 0.005, 1.16415e-10, -2.18557e-10, 0, -0.300423, -0.125074)
 
-[node name="RootNode" type="Node3D" parent="Model" index="0"]
+[node name="RootNode" type="Node3D" parent="Model"]
 
-[node name="Box001" type="Node3D" parent="Model/RootNode" index="0"]
+[node name="Box001" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(2.04682, -8.22335e-15, -1.83433e-08, 2.78482e-15, 2.04682, -3.0771e-07, 2.57602e-08, 4.32129e-07, 1.4575, -26.6348, 81.3998, 0)
 
-[node name="Object_4" type="Node3D" parent="Model/RootNode/Box001" index="0"]
+[node name="Object_4" type="Node3D" parent="Model/RootNode/Box001"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.61851e-07, -3.44862)
 
-[node name="Box001_08 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box001/Object_4" index="0"]
+[node name="Box001_08 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box001/Object_4"]
 mesh = SubResource("ArrayMesh_ynsnr")
 skeleton = NodePath("")
 
-[node name="Box001_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box001/Object_4" index="1"]
+[node name="Box001_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box001/Object_4"]
 mesh = SubResource("ArrayMesh_jrq18")
 skeleton = NodePath("")
 
-[node name="Cylinder003" type="Node3D" parent="Model/RootNode" index="1"]
+[node name="Cylinder003" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(8.94694e-08, 3.3347e-07, 2.04682, 0, 2.04682, -3.3347e-07, -2.04682, 1.45764e-14, 8.94694e-08, 52.7785, 80.9378, 0)
 
-[node name="Cylinder003_08 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder003" index="0"]
+[node name="Cylinder003_08 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder003"]
 mesh = SubResource("ArrayMesh_j5rcl")
 skeleton = NodePath("")
 
-[node name="Cylinder003_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder003" index="1"]
+[node name="Cylinder003_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder003"]
 mesh = SubResource("ArrayMesh_0c6qm")
 skeleton = NodePath("")
 
-[node name="Box004" type="Node3D" parent="Model/RootNode" index="2"]
+[node name="Box004" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(8.94694e-08, 2.04682, -4.13341e-07, -2.04682, 8.94694e-08, -1.8223e-14, -1.25332e-16, 3.3347e-07, 2.53707, -59.904, 89.0653, -0.36892)
 
-[node name="Object_11" type="Node3D" parent="Model/RootNode/Box004" index="0"]
+[node name="Object_11" type="Node3D" parent="Model/RootNode/Box004"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116795, 0.216835, -0.911975)
 
-[node name="Box004_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box004/Object_11" index="0"]
+[node name="Box004_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box004/Object_11"]
 mesh = SubResource("ArrayMesh_ugvx7")
 skeleton = NodePath("")
 
-[node name="Box006" type="Node3D" parent="Model/RootNode" index="3"]
+[node name="Box006" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(8.94694e-08, 2.04682, -4.13341e-07, -2.04682, 8.94694e-08, -1.8223e-14, -1.25332e-16, 3.3347e-07, 2.53707, 29.701, 89.0653, -0.36892)
 
-[node name="Object_14" type="Node3D" parent="Model/RootNode/Box006" index="0"]
+[node name="Object_14" type="Node3D" parent="Model/RootNode/Box006"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116795, 0.216835, -0.911975)
 
-[node name="Box006_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box006/Object_14" index="0"]
+[node name="Box006_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box006/Object_14"]
 mesh = SubResource("ArrayMesh_6fjqf")
 skeleton = NodePath("")
 
-[node name="Box007" type="Node3D" parent="Model/RootNode" index="4"]
+[node name="Box007" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(1.95245, -0.614364, 4.64621e-08, 0.614364, 1.95245, -1.47656e-07, -8.52651e-14, 3.3347e-07, 0.950117, -14.6993, 24.0878, -0.368919)
 
-[node name="Object_17" type="Node3D" parent="Model/RootNode/Box007" index="0"]
+[node name="Object_17" type="Node3D" parent="Model/RootNode/Box007"]
 transform = Transform3D(0.953891, 0.300155, -4.75597e-08, -0.300155, 0.953891, 2.55151e-09, 4.61326e-08, 1.18414e-08, 1, 1.52894, -0.745639, 4.79778)
 
-[node name="Box007_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box007/Object_17" index="0"]
+[node name="Box007_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box007/Object_17"]
 transform = Transform3D(1, -3.55271e-15, -7.10543e-15, 1.42109e-14, 1, 1.98946e-15, 0, 5.84338e-14, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jbpre")
 skeleton = NodePath("")
 
-[node name="Box008" type="Node3D" parent="Model/RootNode" index="5"]
+[node name="Box008" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(2.04552, -0.0730182, 1.18962e-08, 0.0730182, 2.04552, -3.33257e-07, 4.47108e-18, 3.3347e-07, 2.04682, 10.2442, 79.5421, 0)
 
-[node name="Object_20" type="Node3D" parent="Model/RootNode/Box008" index="0"]
+[node name="Object_20" type="Node3D" parent="Model/RootNode/Box008"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06543, -4.79442, -0.426248)
 
-[node name="Box008_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box008/Object_20" index="0"]
+[node name="Box008_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box008/Object_20"]
 mesh = SubResource("ArrayMesh_hyrga")
 skeleton = NodePath("")
 
-[node name="Box009" type="Node3D" parent="Model/RootNode" index="6"]
+[node name="Box009" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(2.04682, -7.10543e-14, 0, 7.10543e-14, 2.04682, -3.3347e-07, -2.11758e-21, 3.3347e-07, 2.04682, -41.6094, 76.7373, 2.45757)
 
-[node name="Box009_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box009" index="0"]
+[node name="Box009_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box009"]
 mesh = SubResource("ArrayMesh_xvant")
 skeleton = NodePath("")
 
-[node name="Cylinder004" type="Node3D" parent="Model/RootNode" index="7"]
+[node name="Cylinder004" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(2.04682, 3.70599e-15, 7.81967e-07, 1.36814e-14, 2.04682, -5.56995e-07, -2.23525e-07, 1.59217e-07, 7.16048, 15.4969, 82.1757, 0)
 
-[node name="Object_25" type="Node3D" parent="Model/RootNode/Cylinder004" index="0"]
+[node name="Object_25" type="Node3D" parent="Model/RootNode/Cylinder004"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37037e-07, -0.841126)
 
-[node name="Cylinder004_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder004/Object_25" index="0"]
+[node name="Cylinder004_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder004/Object_25"]
 mesh = SubResource("ArrayMesh_q3m4q")
 skeleton = NodePath("")
 
-[node name="Cylinder004_03 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder004/Object_25" index="1"]
+[node name="Cylinder004_03 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder004/Object_25"]
 mesh = SubResource("ArrayMesh_q1km1")
 skeleton = NodePath("")
 
-[node name="Cylinder005" type="Node3D" parent="Model/RootNode" index="8"]
+[node name="Cylinder005" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(2.04682, 3.70599e-15, 7.81967e-07, 1.36814e-14, 2.04682, -5.56995e-07, -2.23525e-07, 1.59217e-07, 7.16048, -16.7957, 81.8647, 0)
 
-[node name="Object_29" type="Node3D" parent="Model/RootNode/Cylinder005" index="0"]
+[node name="Object_29" type="Node3D" parent="Model/RootNode/Cylinder005"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37037e-07, -0.841126)
 
-[node name="Cylinder005_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder005/Object_29" index="0"]
+[node name="Cylinder005_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder005/Object_29"]
 mesh = SubResource("ArrayMesh_1su0f")
 skeleton = NodePath("")
 
-[node name="Cylinder005_03 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder005/Object_29" index="1"]
+[node name="Cylinder005_03 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder005/Object_29"]
 mesh = SubResource("ArrayMesh_gxiu6")
 skeleton = NodePath("")
 
-[node name="Box010" type="Node3D" parent="Model/RootNode" index="9"]
+[node name="Box010" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(2.04682, 0, 0, 0, 2.04682, -3.3347e-07, 0, 3.3347e-07, 2.04682, -32.1852, 59.346, -0.368916)
 
-[node name="Box010_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box010" index="0"]
+[node name="Box010_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Box010"]
 mesh = SubResource("ArrayMesh_3ypx3")
 skeleton = NodePath("")
 
-[node name="Tube001" type="Node3D" parent="Model/RootNode" index="10"]
+[node name="Tube001" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(8.94694e-08, -3.3347e-07, -2.04682, 0, 2.04682, -3.3347e-07, 2.04682, 1.45764e-14, 8.94694e-08, -70.3649, 71.741, 0)
 
-[node name="Object_35" type="Node3D" parent="Model/RootNode/Tube001" index="0"]
+[node name="Object_35" type="Node3D" parent="Model/RootNode/Tube001"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32713, 1.8736e-06, 11.5001)
 
-[node name="Tube001_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Tube001/Object_35" index="0"]
+[node name="Tube001_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Tube001/Object_35"]
 mesh = SubResource("ArrayMesh_k16nu")
 skeleton = NodePath("")
 
-[node name="Cylinder001" type="Node3D" parent="Model/RootNode" index="11"]
+[node name="Cylinder001" type="Node3D" parent="Model/RootNode"]
 transform = Transform3D(4.00383e-09, 5.47013e-08, 0.335754, 4.44367e-24, 0.335754, -5.47013e-08, -0.335754, 6.52306e-16, 4.00383e-09, 1.17106, 94.9366, 3.06509e-07)
 
-[node name="Object_41" type="Node3D" parent="Model/RootNode/Cylinder001" index="0"]
+[node name="Object_41" type="Node3D" parent="Model/RootNode/Cylinder001"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0369625, 9.31202, -35.1385)
 
-[node name="Cylinder001_07 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder001/Object_41" index="0"]
+[node name="Cylinder001_07 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder001/Object_41"]
 mesh = SubResource("ArrayMesh_3aw05")
 skeleton = NodePath("")
 
-[node name="Cylinder001_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder001/Object_41" index="1"]
+[node name="Cylinder001_02 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder001/Object_41"]
 mesh = SubResource("ArrayMesh_4ymq8")
 skeleton = NodePath("")
 
-[node name="Cylinder001_03 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder001/Object_41" index="2"]
+[node name="Cylinder001_03 - Default_0" type="MeshInstance3D" parent="Model/RootNode/Cylinder001/Object_41"]
 mesh = SubResource("ArrayMesh_3pvhw")
 skeleton = NodePath("")
 
-[node name="Shell" type="Node3D" parent="." index="6"]
+[node name="Shell" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.280207)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

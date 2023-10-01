@@ -4,7 +4,6 @@ extends Node3D
 @onready var raycast = get_node(raycastpath)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $MuzzleFlash
-@onready var mesh = $Cube
 @onready var ammo_display = $CanvasLayer/Control/PanelContainer/Ammo
 @onready var display = $CanvasLayer/Control
 @onready var shellpos = $Shell

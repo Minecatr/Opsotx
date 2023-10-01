@@ -59,13 +59,16 @@ func _process(delta):
 					selected_rotation.y = wrapf(selected_rotation.y+PI/2,-PI,PI)
 			if Input.is_action_just_pressed("modify"):
 				buildmenu.visible = !buildmenu.visible
-				get_parent().get_parent().get_parent().menu = buildmenu.visible
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if buildmenu.visible else Input.MOUSE_MODE_CAPTURED
+				menu()
 			if Input.is_action_just_pressed("menu"):
 				buildmenu.visible = false
 		elif buildmenu.visible:
 			buildmenu.visible = false
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			menu()
+
+func menu():
+	get_parent().get_parent().get_parent().menu = buildmenu.visible
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if buildmenu.visible else Input.MOUSE_MODE_CAPTURED
 
 func destroy():
 	var camera = get_parent().get_parent()
@@ -114,3 +117,5 @@ func select(structure):
 		for c in currentstructure.get_node("Properties").visuals:
 			currentstructure.get_node("Properties").get_node(c).material_override = load("res://assets/selected.tres")
 		structureplacer.add_child(currentstructure)
+		buildmenu.visible = false
+		menu()

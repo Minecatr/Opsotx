@@ -27,8 +27,9 @@ health = 25
 [node name="Properties" parent="." instance=ExtResource("1_yxfoy")]
 script = ExtResource("2_fxglr")
 collisions = Array[NodePath]([NodePath("../Collision")])
+visuals = Array[NodePath]([NodePath("../MeshInstance3D")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["build"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, 0)
 mesh = SubResource("BoxMesh_xxlwy")
 

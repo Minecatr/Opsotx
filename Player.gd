@@ -12,7 +12,7 @@ signal money_changed(money_value)
 
 var health = 100
 var menu = false
-var money = 10000
+var money = 100000
 
 var input_dir = Vector2.ZERO
 var in_vehicle = false
